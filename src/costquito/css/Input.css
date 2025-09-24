@@ -1,0 +1,18 @@
+.input {
+    -fx-background-color: #FFFFFF;
+    -fx-background-radius: 12;
+    -fx-border-color: #E5E7EB;
+    -fx-border-radius: 12;
+    -fx-padding: 10 12;
+    -fx-font-size: 30px;
+    -fx-font-family: "Segoe UI", system-ui, sans-serif;
+    -fx-text-fill: #1F2328;
+    -fx-prompt-text-fill: rgba(31,35,40,0.45);
+    -fx-effect: none;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.08), 16, 0.22, 0, 2);
+}
+
+.input:focused {
+    -fx-border-color: #005BAD;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.16), 16, 0.22, 0, 2);
+}

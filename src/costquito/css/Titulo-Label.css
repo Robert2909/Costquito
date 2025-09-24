@@ -1,0 +1,5 @@
+.titulo-label {
+    -fx-font-size: 50px;
+    -fx-font-family: "Segoe UI", system-ui, sans-serif;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.08), 16, 0.22, 0, 2);
+}
