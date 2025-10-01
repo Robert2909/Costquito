@@ -11,7 +11,9 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 
@@ -24,13 +26,19 @@ public class IniciarSesionController {
     private Pane contenidoPane;
 
     @FXML
-    private TextField contrasenaTextField;
+    private PasswordField contrasenaPasswordField;
 
     @FXML
     private AnchorPane iniciarSesionAnchorPane;
 
     @FXML
     private Button iniciarSesionButton;
+
+    @FXML
+    private ImageView logoImageView;
+
+    @FXML
+    private Pane logoPane;
 
     @FXML
     private Label tituloLabel;
@@ -46,7 +54,7 @@ public class IniciarSesionController {
     @FXML
     void iniciarSesion(ActionEvent e) {
         String user = usuarioTextField.getText() == null ? "" : usuarioTextField.getText().trim();
-        String pass = contrasenaTextField.getText() == null ? "" : contrasenaTextField.getText();
+        String pass = contrasenaPasswordField.getText() == null ? "" : contrasenaPasswordField.getText();
 
         boolean ok = SessionManager.login(user, pass);
         if (!ok) {

@@ -6,6 +6,8 @@ import javafx.stage.Stage;
 import costquito.globalMethods.WindowUtils;
 import costquito.globalMethods.Views;
 import costquito.globalMethods.LogUtils;
+import costquito.globalMethods.UserRepository;
+import java.nio.file.Paths;
 
 public class Costquito extends Application {
 
@@ -13,8 +15,8 @@ public class Costquito extends Application {
     public void start(Stage primaryStage) {
         try {
             LogUtils.init(null);
+            LogUtils.setMinLevel(LogUtils.Level.AUDIT);
             LogUtils.setConsoleMirror(true);
-            LogUtils.setMinLevel(LogUtils.Level.AUDIT); // o WARN si quieres ultra-silencio
 
             WindowUtils.initPrimaryStage(primaryStage);
             Views.registerAll();
@@ -24,6 +26,8 @@ public class Costquito extends Application {
 
             primaryStage.setTitle("Costquito");
             primaryStage.show();
+            
+            UserRepository.init(Paths.get("costquito.media/usuarios.json"));
 
         } catch (Exception e) {
             LogUtils.error("fatal_boot_error", e);

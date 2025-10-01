@@ -4,9 +4,9 @@
     -fx-background-radius: 12;
     -fx-border-color: #94A3B8;
     -fx-border-radius: 12;
-    -fx-text-fill: #1F2328;
+    -fx-text-fill: #005dab;
     -fx-font-family: "Segoe UI", system-ui, sans-serif;
-    -fx-font-weight: 600;
+    -fx-font-weight: 800;
     -fx-font-size: 30px;
     -fx-padding: 10 18;
     -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.06), 6, 0.15, 0, 1);

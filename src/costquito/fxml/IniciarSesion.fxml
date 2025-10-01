@@ -2,6 +2,7 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -29,7 +30,7 @@
                </font>
             </Label>
             <TextField fx:id="usuarioTextField" layoutX="194.0" layoutY="447.0" promptText="👤 Usuario" styleClass="input" stylesheets="@../css/Input.css" />
-            <TextField fx:id="contrasenaTextField" layoutX="193.0" layoutY="547.0" promptText="🔑 Contraseña" styleClass="input" stylesheets="@../css/Input.css" />
+            <PasswordField fx:id="contrasenaPasswordField" layoutX="193.0" layoutY="547.0" promptText="🔑 Contraseña" styleClass="input" stylesheets="@../css/Input.css" />
             <Button fx:id="iniciarSesionButton" layoutX="273.0" layoutY="697.0" mnemonicParsing="false" onAction="#iniciarSesion" styleClass="boton-normal" stylesheets="@../css/Boton-Normal.css" text="Iniciar sesión" />
          </children>
       </Pane>

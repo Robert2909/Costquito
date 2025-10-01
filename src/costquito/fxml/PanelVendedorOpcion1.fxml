@@ -21,7 +21,7 @@
             </Pane>
             <Button fx:id="cerrarButton" layoutX="1846.0" layoutY="14.0" mnemonicParsing="false" onAction="#cerrarPrograma" prefHeight="40.0" prefWidth="40.0" styleClass="boton-cerrar" stylesheets="@../css/Boton-Cerrar.css" text="x" />
             <Button fx:id="regresarButton" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#regresarInicarSesion" prefHeight="40.0" prefWidth="40.0" styleClass="boton-regresar" stylesheets="@../css/PanelAdministrador/Boton-regresar.css" text="&lt;" />
-            <Button fx:id="ventasButton" layoutX="382.0" layoutY="50.0" mnemonicParsing="false" onAction="#irVentas" prefHeight="100.0" prefWidth="300.0" styleClass="boton-tab" stylesheets="@../css/PanelAdministrador/Botones-Barra-superior-seleccionado.css" text="Ventas" />
+            <Button fx:id="ventasButton" disable="true" layoutX="382.0" layoutY="50.0" mnemonicParsing="false" onAction="#irVentas" prefHeight="100.0" prefWidth="300.0" styleClass="boton-tab" stylesheets="@../css/PanelAdministrador/Botones-Barra-superior-seleccionado.css" text="Ventas" />
          </children>
       </Pane>
       <Pane fx:id="contenidoPane" layoutX="10.0" layoutY="220.0" prefHeight="850.0" prefWidth="1900.0" styleClass="panel" stylesheets="@../css/Panel.css" />

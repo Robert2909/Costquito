@@ -45,15 +45,24 @@ public final class SessionManager {
     public static boolean isAdmin() {
         return current != null && current.getRole() == UserRole.ADMIN;
     }
-
-    // ---------- Autenticación demo ----------
+    
+    // ---------- Autenticación contra JSON ----------
     private static UserRole authenticate(String username, String password) {
-        if ("admin".equalsIgnoreCase(username) && "admin".equals(password)) {
-            return UserRole.ADMIN;
+        UserRecord rec = UserRepository.findByUsername(username);
+        if (rec == null) {
+            LogUtils.warn("usuario_no_encontrado", "username", username);
+            return null;
         }
-        if ("vendedor".equalsIgnoreCase(username) && "1234".equals(password)) {
-            return UserRole.VENDEDOR;
+        if (!rec.enabled) {
+            LogUtils.warn("usuario_deshabilitado", "username", username);
+            return null;
         }
-        return null;
+        boolean ok = PasswordUtils.matches(rec.passwordHash, password);
+        if (!ok) {
+            LogUtils.warn("password_incorrecto", "username", username);
+            return null;
+        }
+        return rec.role;
     }
+
 }
