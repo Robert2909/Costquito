@@ -1,0 +1,30 @@
+.boton-tab {
+    -fx-background-color: #F8FAFC;
+    -fx-background-insets: 0;
+    -fx-background-radius: 12;
+    -fx-border-color: #94A3B8;
+    -fx-border-radius: 12;
+    -fx-text-fill: #1F2328;
+    -fx-font-family: "Segoe UI", system-ui, sans-serif;
+    -fx-font-weight: 600;
+    -fx-font-size: 30px;
+    -fx-padding: 10 18;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.06), 6, 0.15, 0, 1);
+    -fx-cursor: hand;
+    -fx-focus-color: transparent;
+    -fx-faint-focus-color: transparent;
+    -fx-translate-y: 1;
+}
+
+.boton-tab:hover {
+    -fx-background-color: #FFFFFF;
+    -fx-border-color: #CBD5E1;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.12), 12, 0.25, 0, 3);
+}
+
+.boton-tab:armed {
+    -fx-background-color: #F8FAFC;
+    -fx-border-color: #94A3B8;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.06), 6, 0.15, 0, 1);
+    -fx-translate-y: 1;
+}
