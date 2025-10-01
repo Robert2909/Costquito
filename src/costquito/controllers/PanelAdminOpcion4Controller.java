@@ -10,10 +10,10 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 
-public class PanelAdminOpcion3Controller {
-        
+public class PanelAdminOpcion4Controller {
+
     @FXML
-    private AnchorPane PanelAdminOpcion1AnchorPane;
+    private AnchorPane PanelAdminOpcion4AnchorPane;
 
     @FXML
     private Button administracionButton;
@@ -26,7 +26,7 @@ public class PanelAdminOpcion3Controller {
 
     @FXML
     private Pane contenidoPane;
-    
+
     @FXML
     private Button cuentasButton;
 

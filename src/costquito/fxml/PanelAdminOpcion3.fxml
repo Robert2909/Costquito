@@ -24,6 +24,7 @@
             <Button fx:id="administracionButton" layoutX="382.0" layoutY="50.0" mnemonicParsing="false" onAction="#irAdministracion" prefHeight="100.0" prefWidth="300.0" styleClass="boton-tab" stylesheets="@../css/PanelAdministrador/Botones-Barra-superior.css" text="Administración" />
             <Button fx:id="ventasButton" layoutX="696.0" layoutY="50.0" mnemonicParsing="false" onAction="#irVentas" prefHeight="100.0" prefWidth="300.0" styleClass="boton-tab" stylesheets="@../css/PanelAdministrador/Botones-Barra-superior.css" text="Ventas" />
             <Button fx:id="reportesButton" disable="true" layoutX="1010.0" layoutY="50.0" mnemonicParsing="false" onAction="#irReportes" prefHeight="100.0" prefWidth="300.0" styleClass="boton-tab" stylesheets="@../css/PanelAdministrador/Botones-Barra-superior-seleccionado.css" text="Reportes" />
+            <Button fx:id="cuentasButton" layoutX="1324.0" layoutY="49.0" mnemonicParsing="false" onAction="#irCuentas" prefHeight="100.0" prefWidth="300.0" styleClass="boton-tab" stylesheets="@../css/PanelAdministrador/Botones-Barra-superior.css" text="Cuentas" />
          </children>
       </Pane>
       <Pane fx:id="contenidoPane" layoutX="10.0" layoutY="220.0" prefHeight="850.0" prefWidth="1900.0" styleClass="panel" stylesheets="@../css/Panel.css" />

@@ -26,5 +26,6 @@
          </children>
       </Pane>
       <Pane fx:id="contenidoPane" layoutX="10.0" layoutY="220.0" prefHeight="850.0" prefWidth="1900.0" styleClass="panel" stylesheets="@../css/Panel.css" />
+      <Button fx:id="cuentasButton" layoutX="1334.0" layoutY="59.0" mnemonicParsing="false" onAction="#irCuentas" prefHeight="100.0" prefWidth="300.0" styleClass="boton-tab" stylesheets="@../css/PanelAdministrador/Botones-Barra-superior.css" text="Cuentas" />
    </children>
 </AnchorPane>

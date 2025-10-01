@@ -1,4 +1,4 @@
 [
-  { "username": "admin",    "passwordHash": "plain:admin", "role": "ADMIN",    "enabled": true,  "displayName": "Administrador General" },
-  { "username": "vendedor", "passwordHash": "plain:1234",  "role": "VENDEDOR", "enabled": true,  "displayName": "Vendedor Punto 1" }
+  { "username": "Magaly",    "passwordHash": "plain:1234", "role": "ADMIN",    "enabled": true,  "displayName": "Administrador General" },
+  { "username": "Vendedor", "passwordHash": "plain:1234",  "role": "VENDEDOR", "enabled": true,  "displayName": "Vendedor Punto 1" }
 ]

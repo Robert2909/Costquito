@@ -26,6 +26,9 @@ public class PanelAdminOpcion1Controller {
 
     @FXML
     private Pane contenidoPane;
+    
+    @FXML
+    private Button cuentasButton;
 
     @FXML
     private ImageView logoImageView;
@@ -50,6 +53,11 @@ public class PanelAdminOpcion1Controller {
     @FXML
     void irAdministracion(ActionEvent event) {
         WindowUtils.navigate(Views.PANEL_ADMIN_OPCION1);
+    }
+    
+    @FXML
+    void irCuentas(ActionEvent event) {
+        WindowUtils.navigate(Views.PANEL_ADMIN_OPCION4);
     }
 
     @FXML
