@@ -1,223 +1,287 @@
 package costquito.globalMethods;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.reflect.TypeToken;
+
 import java.io.IOException;
 import java.io.InputStream;
-import java.io.UncheckedIOException;
+import java.lang.reflect.Type;
 import java.nio.charset.StandardCharsets;
-import java.nio.file.*;
-import java.util.*;
-import java.util.concurrent.ConcurrentHashMap;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.util.ArrayList;
+import java.util.EnumSet;
+import java.util.List;
 
 /**
- * Carga usuarios desde un JSON (array de objetos):
- * username, passwordHash ("plain:" o "sha256:"), role, enabled, displayName.
- * 1) Primero intenta classpath (recomendado): "/costquito/media/usuarios.json"
- * 2) Si no existe, intenta un archivo externo (Path).
+ * Repositorio estático de usuarios respaldado en JSON.
+ * Archivo en disco: costquito.media/usuarios.json
+ *
+ * Métodos usados por el proyecto:
+ *  - initResource(String classpathResource)
+ *  - init(), reload(), save()
+ *  - findByRole(UserRole), findByUsername(String)
+ *  - updateCredentials(UserRole, username, plainPassword)
+ *  - updateUsername(UserRole, username), updatePassword(UserRole, plainPassword)
  */
 public final class UserRepository {
 
-    // Fuente preferida: recurso en el classpath
-    private static String resourcePath = "/costquito/media/usuarios.json";
-    // Alternativa: archivo externo
-    private static Path filePath = null;
+    private static final Path USERS_PATH = Paths.get("costquito.media", "usuarios.json");
+    private static final Gson GSON = new GsonBuilder()
+            .setPrettyPrinting()
+            .registerTypeAdapter(UserRole.class, (com.google.gson.JsonDeserializer<UserRole>) (json, type, ctx) -> {
+                if (json == null || json.isJsonNull()) return null;
+                String s = json.getAsString();
+                if (s == null) return null;
+                s = s.trim();
+                if (s.equalsIgnoreCase("VENDEDOR")) return UserRole.VENDOR; // alias español
+                if (s.equalsIgnoreCase("VENDOR"))   return UserRole.VENDOR;
+                if (s.equalsIgnoreCase("ADMIN"))    return UserRole.ADMIN;
+                try { return UserRole.valueOf(s.toUpperCase()); }
+                catch (IllegalArgumentException ex) { return null; }
+            })
+            .create();
 
-    private static final Map<String, UserRecord> byUsername = new ConcurrentHashMap<>();
-    private static volatile boolean loaded = false;
+    private static final java.lang.reflect.Type LIST_TYPE =
+            new com.google.gson.reflect.TypeToken<java.util.List<UserRecord>>() {}.getType();
 
-    private UserRepository() {}
 
-    /** Usar un recurso dentro del jar/classpath. Ej: "/costquito/media/usuarios.json" */
+    private static List<UserRecord> cache = new ArrayList<>();
+    private static boolean initialized = false;
+
+    private UserRepository() { }
+
+    /** Copia el archivo de ejemplo desde recursos al disco si aún no existe. */
     public static synchronized void initResource(String classpathResource) {
-        if (classpathResource != null && !classpathResource.isBlank()) {
-            resourcePath = classpathResource;
-        }
-        filePath = null; // prioriza recurso
-        reload();
-    }
-
-    /** Usar un archivo externo en disco. Ej: Paths.get("config/usuarios.json") */
-    public static synchronized void init(Path externalFile) {
-        filePath = externalFile;
-        // mantenemos también el recurso por si quieres fallback, pero priorizamos archivo
-        reload();
-    }
-
-    public static synchronized void reload() {
-        String content = null;
-
-        // 1) Intentar leer del classpath
-        if (resourcePath != null) {
-            try (InputStream in = UserRepository.class.getResourceAsStream(resourcePath)) {
+        try {
+            if (Files.exists(USERS_PATH)) return;
+            Files.createDirectories(USERS_PATH.getParent());
+            try (InputStream in = UserRepository.class.getResourceAsStream(classpathResource)) {
                 if (in != null) {
-                    content = new String(in.readAllBytes(), StandardCharsets.UTF_8);
-                    LogUtils.audit("usuarios_cargados_classpath", "path", resourcePath);
+                    String json = new String(in.readAllBytes(), StandardCharsets.UTF_8);
+                    Files.writeString(USERS_PATH, json, StandardCharsets.UTF_8);
+                } else {
+                    // Si no hay recurso, crea por defecto (admin/vendedor con claves 1234)
+                    createDefaultsAndSave();
                 }
-            } catch (IOException e) {
-                LogUtils.warn("usuarios_classpath_read_warn", "path", resourcePath);
             }
+        } catch (IOException e) {
+            e.printStackTrace();
+            // Último recurso: defaults
+            createDefaultsAndSave();
         }
-
-        // 2) Si no hubo contenido, intentar archivo externo
-        if (content == null && filePath != null) {
-            try {
-                content = Files.readString(filePath, StandardCharsets.UTF_8);
-                LogUtils.audit("usuarios_cargados_file", "path", filePath.toString());
-            } catch (IOException e) {
-                LogUtils.error("error_cargando_usuarios_file", e, "path", filePath.toString());
-                throw new UncheckedIOException(e);
-            }
-        }
-
-        // 3) Si seguimos sin contenido, error claro
-        if (content == null) {
-            String msg = "No se encontró usuarios.json ni en classpath (" + resourcePath + ") ni como archivo externo.";
-            LogUtils.error(msg, null);
-            throw new IllegalStateException(msg);
-        }
-
-        // Parseo simple del JSON esperado
-        List<Map<String, String>> rows = parseArrayOfObjects(content);
-        byUsername.clear();
-        for (Map<String, String> m : rows) {
-            String username = get(m, "username");
-            String passHash = get(m, "passwordHash");
-            String roleStr  = get(m, "role");
-            String enabledS = get(m, "enabled");
-            String display  = get(m, "displayName");
-            if (username == null || passHash == null || roleStr == null) continue;
-
-            boolean enabled = !"false".equalsIgnoreCase(enabledS);
-            UserRole role;
-            try { role = UserRole.valueOf(roleStr.trim().toUpperCase()); }
-            catch (Exception e) { role = UserRole.VENDEDOR; }
-
-            UserRecord rec = new UserRecord(username.trim(), passHash.trim(), role, enabled, display);
-            byUsername.put(rec.username.toLowerCase(), rec);
-        }
-        loaded = true;
-        LogUtils.audit("usuarios_indexados", "count", byUsername.size());
     }
 
-    public static UserRecord findByUsername(String username) {
-        if (!loaded) reload();
+    /** Inicializa el repositorio (carga y asegura roles base). */
+    public static synchronized void init() {
+        if (!initialized) {
+            reload();
+            migrateKnownDefaultsToPlain();
+            normalizeAndDeduplicate();
+            ensureCoreRoles();
+            initialized = true;
+        }
+    }
+
+    /** Lee el JSON a memoria. */
+    public static synchronized void reload() {
+        try {
+            if (!Files.exists(USERS_PATH)) {
+                cache = new ArrayList<>();
+                return;
+            }
+            String json = Files.readString(USERS_PATH, StandardCharsets.UTF_8);
+            List<UserRecord> list = GSON.fromJson(json, LIST_TYPE);
+            cache = (list != null) ? list : new ArrayList<>();
+        } catch (IOException e) {
+            e.printStackTrace();
+            cache = new ArrayList<>();
+        }
+    }
+
+    /** Persiste el cache al JSON. */
+    public static synchronized void save() {
+        try {
+            if (cache == null) cache = new ArrayList<>();
+            Files.createDirectories(USERS_PATH.getParent());
+            String json = GSON.toJson(cache, LIST_TYPE);
+            Files.writeString(USERS_PATH, json, StandardCharsets.UTF_8);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    /** Devuelve todos (copia defensiva). */
+    public static synchronized List<UserRecord> getAll() {
+        init();
+        return new ArrayList<>(cache);
+    }
+
+    /** Busca por rol. */
+    public static synchronized UserRecord findByRole(UserRole role) {
+        init();
+        UserRecord candidate = null;
+        for (UserRecord u : cache) {
+            if (u != null && u.role == role) {
+                if (u.passwordHash != null && u.passwordHash.trim().regionMatches(true, 0, "plain:", 0, 6)) {
+                    return u; // preferimos el que se puede mostrar
+                }
+                if (candidate == null) candidate = u;
+            }
+        }
+        return candidate;
+    }
+
+
+
+    /** Busca por username (exacto, case-sensitive). */
+    public static synchronized UserRecord findByUsername(String username) {
+        init();
         if (username == null) return null;
-        return byUsername.get(username.toLowerCase());
-    }
-
-    // ---------- Helpers JSON mínimos (para el formato previsto) ----------
-
-    private static List<Map<String, String>> parseArrayOfObjects(String json) {
-        List<Map<String, String>> list = new ArrayList<>();
-        if (json == null) return list;
-
-        json = json.replaceAll("/\\*.*?\\*/", "").replaceAll("//.*(?=\\n)", "");
-
-        int i = skipWs(json, 0);
-        if (i >= json.length() || json.charAt(i) != '[') return list;
-        i++;
-        while (true) {
-            i = skipWs(json, i);
-            if (i >= json.length()) break;
-            if (json.charAt(i) == ']') { i++; break; }
-            ParseObj po = readObject(json, i);
-            if (po == null) break;
-            list.add(po.map);
-            i = skipWs(json, po.next);
-            if (i < json.length() && json.charAt(i) == ',') { i++; continue; }
-            if (i < json.length() && json.charAt(i) == ']') { i++; break; }
-        }
-        return list;
-    }
-
-    private static class ParseObj {
-        Map<String, String> map; int next;
-        ParseObj(Map<String, String> m, int n) { map = m; next = n; }
-    }
-
-    private static ParseObj readObject(String s, int i) {
-        i = skipWs(s, i);
-        if (i >= s.length() || s.charAt(i) != '{') return null;
-        i++;
-        Map<String, String> m = new LinkedHashMap<>();
-        while (true) {
-            i = skipWs(s, i);
-            if (i < s.length() && s.charAt(i) == '}') { i++; break; }
-            String key = readString(s, i);
-            if (key == null) return null;
-            i = nextPos;
-            i = skipWs(s, i);
-            if (i >= s.length() || s.charAt(i) != ':') return null;
-            i++;
-            i = skipWs(s, i);
-            if (i < s.length() && s.charAt(i) == '"') {
-                String val = readString(s, i);
-                if (val == null) return null;
-                i = nextPos;
-                m.put(key, val);
-            } else {
-                int j = i;
-                while (j < s.length() && ",}] \t\r\n".indexOf(s.charAt(j)) == -1) j++;
-                String raw = s.substring(i, j).trim();
-                m.put(key, raw);
-                i = j;
-            }
-            i = skipWs(s, i);
-            if (i < s.length() && s.charAt(i) == ',') { i++; continue; }
-            if (i < s.length() && s.charAt(i) == '}') { i++; break; }
-        }
-        return new ParseObj(m, i);
-    }
-
-    private static int nextPos = 0;
-
-    private static String readString(String s, int i) {
-        i = skipWs(s, i);
-        if (i >= s.length() || s.charAt(i) != '"') return null;
-        i++;
-        StringBuilder sb = new StringBuilder();
-        while (i < s.length()) {
-            char c = s.charAt(i++);
-            if (c == '\\') {
-                if (i >= s.length()) break;
-                char n = s.charAt(i++);
-                switch (n) {
-                    case '"': sb.append('"'); break;
-                    case '\\': sb.append('\\'); break;
-                    case '/': sb.append('/'); break;
-                    case 'b': sb.append('\b'); break;
-                    case 'f': sb.append('\f'); break;
-                    case 'n': sb.append('\n'); break;
-                    case 'r': sb.append('\r'); break;
-                    case 't': sb.append('\t'); break;
-                    case 'u':
-                        if (i + 4 <= s.length()) {
-                            String hex = s.substring(i, i + 4);
-                            try { sb.append((char) Integer.parseInt(hex, 16)); } catch (Exception ignore) {}
-                            i += 4;
-                        }
-                        break;
-                    default: sb.append(n);
-                }
-            } else if (c == '"') {
-                nextPos = i;
-                return sb.toString();
-            } else {
-                sb.append(c);
+        for (UserRecord u : cache) {
+            if (u != null && username.equals(u.username)) {
+                return u;
             }
         }
         return null;
     }
 
-    private static int skipWs(String s, int i) {
-        while (i < s.length()) {
-            char c = s.charAt(i);
-            if (c == ' ' || c == '\n' || c == '\r' || c == '\t') i++;
-            else break;
+    /** Crea/actualiza username y passwordHash para el rol indicado. */
+    public static synchronized void updateCredentials(UserRole role, String username, String passwordPlain) {
+        init();
+        UserRecord u = findByRole(role);
+        if (u == null) {
+            u = new UserRecord();
+            u.role = role;
+            u.enabled = true;
+            cache.add(u);
         }
-        return i;
+        u.username = username;
+        u.passwordHash = "plain:" + (passwordPlain == null ? "" : passwordPlain.trim()); // <-- guardar como plain
     }
 
-    private static String get(Map<String, String> m, String k) {
-        return m.get(k);
+
+    /** Actualiza solo el username. */
+    public static synchronized void updateUsername(UserRole role, String username) {
+        init();
+        UserRecord u = findByRole(role);
+        if (u == null) {
+            u = new UserRecord();
+            u.role = role;
+            u.enabled = true;
+            cache.add(u);
+        }
+        u.username = username;
     }
+
+    /** Actualiza solo el passwordHash. */
+    public static synchronized void updatePassword(UserRole role, String passwordPlain) {
+        init();
+        UserRecord u = findByRole(role);
+        if (u == null) {
+            u = new UserRecord();
+            u.role = role;
+            u.enabled = true;
+            cache.add(u);
+        }
+        u.passwordHash = "plain:" + (passwordPlain == null ? "" : passwordPlain.trim()); // <-- plain
+    }
+
+
+    // ---------------------------------------------------------------------
+    // Internos
+    // ---------------------------------------------------------------------
+
+    /** Garantiza que existan ADMIN y VENDOR; si falta alguno, lo crea con 1234. */
+    private static void ensureCoreRoles() {
+        EnumSet<UserRole> roles = EnumSet.noneOf(UserRole.class);
+        for (UserRecord u : cache) {
+            if (u != null && u.role != null) roles.add(u.role);
+        }
+        boolean changed = false;
+        if (!roles.contains(UserRole.ADMIN)) {
+            cache.add(UserRecord.of(UserRole.ADMIN, "admin", "plain:1234", true));
+            changed = true;
+        }
+        if (!roles.contains(UserRole.VENDOR)) {
+            cache.add(UserRecord.of(UserRole.VENDOR, "vendedor", "plain:1234", true));
+            changed = true;
+        }
+        if (changed) save();
+    }
+
+    /** Crea archivo con defaults si no existe nada. */
+    private static void createDefaultsAndSave() {
+        cache = new ArrayList<>();
+        cache.add(UserRecord.of(UserRole.ADMIN, "admin", "plain:1234", true));
+        cache.add(UserRecord.of(UserRole.VENDOR, "vendedor", "plain:1234", true));
+        save();
+    }
+    
+    private static void normalizeAndDeduplicate() {
+        boolean changed = false;
+
+        // 1) Si algún registro viene sin role por no mapear, intenta inferir por username/displayName
+        for (UserRecord u : new ArrayList<>(cache)) {
+            if (u == null) continue;
+            if (u.role == null) {
+                String un = u.username != null ? u.username.toLowerCase() : "";
+                String dn = u.displayName != null ? u.displayName.toLowerCase() : "";
+                if (un.equals("vendedor") || dn.contains("vendedor")) { u.role = UserRole.VENDOR; changed = true; }
+                if (un.equals("magaly")   || dn.contains("admin"))    { u.role = UserRole.ADMIN;  changed = true; }
+            }
+        }
+
+        // 2) Si hay duplicados por rol, conserva el "mejor" y elimina el resto
+        changed |= dedupByRole(UserRole.ADMIN);
+        changed |= dedupByRole(UserRole.VENDOR);
+
+        if (changed) save();
+    }
+
+    private static boolean dedupByRole(UserRole role) {
+        List<UserRecord> list = new ArrayList<>();
+        for (UserRecord u : cache) if (u != null && u.role == role) list.add(u);
+        if (list.size() <= 1) return false;
+
+        // Preferir el que tenga password en claro (plain:) o displayName no vacío
+        UserRecord keep = null;
+        for (UserRecord u : list) {
+            if (u.passwordHash != null && u.passwordHash.startsWith("plain:")) { keep = u; break; }
+        }
+        if (keep == null) {
+            for (UserRecord u : list) {
+                if (u.displayName != null && !u.displayName.isBlank()) { keep = u; break; }
+            }
+        }
+        if (keep == null) keep = list.get(0);
+
+        // Eliminar los demás
+        boolean changed = false;
+        for (UserRecord u : list) {
+            if (u != keep) { cache.remove(u); changed = true; }
+        }
+        return changed;
+    }
+    
+    // Conversión automática de hashes "sha256:1234" a "plain:1234"
+    private static void migrateKnownDefaultsToPlain() {
+        boolean changed = false;
+
+        // Hash de "1234" (coincide con el que viste en el log)
+        final String SHA256_1234 = "sha256:03ac674216f3e15c761ee1a5e255f067953623c8b388b4459e13f978d7c846f4";
+
+        for (UserRecord u : cache) {
+            if (u == null || u.passwordHash == null) continue;
+            String h = u.passwordHash.trim().toLowerCase();
+            if (h.equals(SHA256_1234)) {           // si es ese hash exacto
+                u.passwordHash = "plain:1234";     // lo migramos a plano
+                changed = true;
+            }
+        }
+        if (changed) save();
+    }
+
 }

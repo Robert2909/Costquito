@@ -1,0 +1,2 @@
+{"ts":"2025-10-03T17:28:29.5102996-06:00","level":"AUDIT","event":"app_close_requested","user":"Magaly","view":"panel_admin_opcion1","thread":"JavaFX Application Thread"}
+{"ts":"2025-10-03T17:28:29.5599161-06:00","level":"AUDIT","event":"app_terminated","user":"Magaly","view":"panel_admin_opcion1","thread":"JavaFX Application Thread"}

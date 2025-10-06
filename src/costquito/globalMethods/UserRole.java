@@ -1,6 +1,9 @@
 package costquito.globalMethods;
 
+import com.google.gson.annotations.SerializedName;
+
 public enum UserRole {
     ADMIN,
-    VENDEDOR
+    @SerializedName(value = "VENDOR", alternate = { "VENDEDOR" })
+    VENDOR
 }

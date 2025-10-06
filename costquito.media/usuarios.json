@@ -1,0 +1,14 @@
+[
+  {
+    "username": "Magaly",
+    "passwordHash": "plain:123",
+    "enabled": true,
+    "role": "ADMIN"
+  },
+  {
+    "username": "Vendedor",
+    "passwordHash": "plain:123",
+    "enabled": true,
+    "role": "VENDOR"
+  }
+]

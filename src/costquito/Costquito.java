@@ -27,7 +27,7 @@ public class Costquito extends Application {
             primaryStage.setTitle("Costquito");
             primaryStage.show();
             
-            UserRepository.init(Paths.get("costquito.media/usuarios.json"));
+            UserRepository.initResource("/costquito/media/usuarios.json");
 
         } catch (Exception e) {
             LogUtils.error("fatal_boot_error", e);

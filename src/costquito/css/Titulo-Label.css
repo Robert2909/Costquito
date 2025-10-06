@@ -1,5 +1,20 @@
 .titulo-label {
     -fx-font-size: 50px;
     -fx-font-family: "Segoe UI", system-ui, sans-serif;
+    -fx-font-weight: 800;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.08), 16, 0.22, 0, 2);
+}
+
+.subtitulo-label {
+    -fx-font-size: 40px;
+    -fx-font-family: "Segoe UI", system-ui, sans-serif;
+    -fx-font-weight: 600;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.08), 16, 0.22, 0, 2);
+}
+
+.normal-label {
+    -fx-font-size: 30px;
+    -fx-font-family: "Segoe UI", system-ui, sans-serif;
+    -fx-font-weight: 400;
     -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.08), 16, 0.22, 0, 2);
 }
