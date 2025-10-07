@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.URL?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+
+<AnchorPane id="AnchorPane" fx:id="PanelAdminOpcion4AnchorPane" prefHeight="1080.0" prefWidth="1920.0" styleClass="background" stylesheets="@../css/Background.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="costquito.controllers.PanelAdminOpcion4Controller">
+   <children>
+      <Pane fx:id="barraSuperiorPane" layoutX="10.0" layoutY="10.0" prefHeight="200.0" prefWidth="1900.0" styleClass="panel" stylesheets="@../css/Panel.css">
+         <children>
+            <Button fx:id="regresarButton" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#regresarInicarSesion" prefHeight="40.0" prefWidth="40.0" styleClass="boton-regresar" stylesheets="@../css/PanelAdministrador/Boton-regresar.css" text="&lt;" />
+            <Button fx:id="cerrarButton" layoutX="1846.0" layoutY="14.0" mnemonicParsing="false" onAction="#cerrarPrograma" prefHeight="40.0" prefWidth="40.0" styleClass="boton-cerrar" stylesheets="@../css/Boton-Cerrar.css" text="x" />
+            <Pane fx:id="logoPane" layoutX="68.0" layoutY="40.0" prefHeight="120.0" prefWidth="300.0" styleClass="panel">
+               <children>
+                  <ImageView fx:id="logoImageView" fitHeight="120.0" fitWidth="300.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../media/Logo.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </Pane>
+            <Button fx:id="administracionButton" layoutX="382.0" layoutY="50.0" mnemonicParsing="false" onAction="#irAdministracion" prefHeight="100.0" prefWidth="300.0" styleClass="boton-tab" stylesheets="@../css/PanelAdministrador/Botones-Barra-superior.css" text="Administración" />
+            <Button fx:id="ventasButton" layoutX="696.0" layoutY="50.0" mnemonicParsing="false" onAction="#irVentas" prefHeight="100.0" prefWidth="300.0" styleClass="boton-tab" stylesheets="@../css/PanelAdministrador/Botones-Barra-superior.css" text="Ventas" />
+            <Button fx:id="reportesButton" layoutX="1010.0" layoutY="50.0" mnemonicParsing="false" onAction="#irReportes" prefHeight="100.0" prefWidth="300.0" styleClass="boton-tab" text="Reportes">
+               <stylesheets>
+                  <URL value="@../css/PanelAdministrador/Botones-Barra-superior-seleccionado.css" />
+                  <URL value="@../css/PanelAdministrador/Botones-Barra-superior.css" />
+               </stylesheets></Button>
+            <Button fx:id="cuentasButton" disable="true" layoutX="1324.0" layoutY="49.0" mnemonicParsing="false" onAction="#irCuentas" prefHeight="100.0" prefWidth="300.0" styleClass="boton-tab" stylesheets="@../css/PanelAdministrador/Botones-Barra-superior-seleccionado.css" text="Cuentas" />
+         </children>
+      </Pane>
+      <Pane fx:id="contenidoPane" layoutX="10.0" layoutY="220.0" prefHeight="850.0" prefWidth="1900.0" styleClass="panel" stylesheets="@../css/Panel.css">
+         <children>
+            <Pane fx:id="cuentaAdministradorPane" layoutX="50.0" layoutY="50.0" prefHeight="350.0" prefWidth="1800.0" styleClass="panel" stylesheets="@../css/Panel.css">
+               <children>
+                  <Label fx:id="cuentaAdministradorTituloLabel" layoutX="25.0" layoutY="25.0" styleClass="titulo-label" stylesheets="@../css/Titulo-Label.css" text="Cuenta del administrador" />
+                  <Label fx:id="cuentaAdministradorUsuarioLabel" layoutX="25.0" layoutY="150.0" styleClass="subtitulo-label" stylesheets="@../css/Titulo-Label.css" text="Usuario" />
+                  <TextField fx:id="cuentaAdministradorUsuarioTextField" disable="true" layoutX="25.0" layoutY="200.0" prefHeight="59.0" prefWidth="600.0" promptText="👤 Usuario actual..." styleClass="input" stylesheets="@../css/Input.css" />
+                  <Label fx:id="cuentaAdministradorContrasenaLabel" layoutX="650.0" layoutY="150.0" styleClass="subtitulo-label" stylesheets="@../css/Titulo-Label.css" text="Contraseña" />
+                  <TextField fx:id="cuentaAdministradorContrasenaTextField" disable="true" layoutX="650.0" layoutY="200.0" prefHeight="59.0" prefWidth="600.0" promptText="🔑 Contraseña actual..." styleClass="input" stylesheets="@../css/Input.css" />
+                  <Button fx:id="cuentaAdministradorEditarButton" layoutX="1350.0" layoutY="278.0" mnemonicParsing="false" onAction="#editarCuentaAdministrador" prefWidth="200.0" styleClass="boton-normal" stylesheets="@../css/Boton-Normal.css" text="Editar" />
+                  <Button fx:id="cuentaAdministradorGuardarButton" disable="true" layoutX="1575.0" layoutY="279.0" mnemonicParsing="false" onAction="#guardarCuentaAdministrador" prefWidth="200.0" styleClass="boton-normal" stylesheets="@../css/Boton-Normal.css" text="Guardar" />
+               </children>
+            </Pane>
+            <Pane fx:id="cuentaVendedorPane" layoutX="50.0" layoutY="450.0" prefHeight="350.0" prefWidth="1800.0" styleClass="panel" stylesheets="@../css/Panel.css">
+               <children>
+                  <Label fx:id="cuentaVendedorTituloLabel" layoutX="25.0" layoutY="25.0" styleClass="titulo-label" stylesheets="@../css/Titulo-Label.css" text="Cuenta del vendedor" />
+                  <Label fx:id="cuentaVendedorUsuarioLabel" layoutX="25.0" layoutY="150.0" styleClass="subtitulo-label" stylesheets="@../css/Titulo-Label.css" text="Usuario" />
+                  <TextField fx:id="cuentaVendedorUsuarioTextField" disable="true" layoutX="25.0" layoutY="200.0" prefHeight="59.0" prefWidth="600.0" promptText="👤 Usuario actual..." styleClass="input" stylesheets="@../css/Input.css" />
+                  <Label fx:id="cuentaVendedorContrasenaLabel" layoutX="650.0" layoutY="150.0" styleClass="subtitulo-label" stylesheets="@../css/Titulo-Label.css" text="Contraseña" />
+                  <TextField fx:id="cuentaVendedorContrasenaTextField" disable="true" layoutX="650.0" layoutY="200.0" prefHeight="59.0" prefWidth="600.0" promptText="🔑 Contraseña actual..." styleClass="input" stylesheets="@../css/Input.css" />
+                  <Button fx:id="cuentaVendedorEditarButton" layoutX="1350.0" layoutY="278.0" mnemonicParsing="false" onAction="#editarCuentaVendedor" prefWidth="200.0" styleClass="boton-normal" stylesheets="@../css/Boton-Normal.css" text="Editar" />
+                  <Button fx:id="cuentaVendedorGuardarButton" disable="true" layoutX="1575.0" layoutY="279.0" mnemonicParsing="false" onAction="#guardarCuentaVendedor" prefWidth="200.0" styleClass="boton-normal" stylesheets="@../css/Boton-Normal.css" text="Guardar" />
+               </children>
+            </Pane>
+         </children></Pane>
+   </children>
+</AnchorPane>

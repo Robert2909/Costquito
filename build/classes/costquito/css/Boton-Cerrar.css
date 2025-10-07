@@ -1,0 +1,24 @@
+.boton-cerrar {
+    -fx-background-color: #FFFFFF;
+    -fx-text-fill: #64748B;
+    -fx-background-radius: 50; /* círculo perfecto */
+    -fx-padding: 6 8;
+    -fx-font-size: 18px;
+    -fx-font-family: "Segoe UI", system-ui, sans-serif;
+    -fx-cursor: hand;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.15), 6, 0.2, 0, 2);
+    -fx-border-color: #E5E7EB;
+    -fx-border-radius: 50;
+}
+
+.boton-cerrar:hover {
+    -fx-background-color: rgba(230,16,49,0.10);
+    -fx-text-fill: #E61031;
+    -fx-border-color: rgba(230,16,49,0.25);
+}
+
+.boton-cerrar:armed {
+    -fx-background-color: rgba(230,16,49,0.20);
+    -fx-text-fill: #E61031;
+    -fx-border-color: rgba(230,16,49,0.40);
+}

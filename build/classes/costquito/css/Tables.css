@@ -1,0 +1,114 @@
+/* Tables.css — Costquito
+   Paleta: #E61031 (rojo), #FFFFFF (blanco), #005BAD (azul)
+   Aplica al TableView con style class: tabla-productos
+*/
+
+.root .tabla-productos {
+    -fx-background-color: transparent;
+    -fx-padding: 6;
+    -fx-background-insets: 0;
+    -fx-border-color: rgba(0,0,0,0.06);
+    -fx-border-radius: 12;
+    -fx-background-radius: 12;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.05), 16, 0.2, 0, 2);
+}
+
+/* Cabecera */
+.root .tabla-productos .column-header-background {
+    -fx-background-color: linear-gradient(to bottom, #FFFFFF, #F7FAFC);
+    -fx-background-insets: 0, 1;
+    -fx-background-radius: 12 12 0 0;
+    -fx-border-color: rgba(0,0,0,0.06);
+    -fx-border-width: 0 0 1 0;
+    -fx-padding: 6 8;
+}
+
+.root .tabla-productos .column-header {
+    -fx-border-color: transparent;
+}
+
+.root .tabla-productos .column-header .label {
+    -fx-text-fill: #0F172A;
+    -fx-font-size: 14px;          /* ↑ legibilidad */
+    -fx-font-weight: 600;
+    -fx-opacity: 0.95;
+}
+
+/* Filas/Celdas */
+.root .tabla-productos .table-row-cell {
+    -fx-background-color: transparent;
+    -fx-cell-size: 34px;          /* ↑ altura para tipografía mayor */
+}
+
+.root .tabla-productos .table-row-cell:odd {
+    -fx-background-color: #FAFBFF; /* zebra suave */
+}
+
+.root .tabla-productos .table-row-cell:hover {
+    -fx-background-color: rgba(0,91,173,0.06);
+}
+
+.root .tabla-productos .table-row-cell:selected {
+    -fx-background-color: rgba(0,91,173,0.12);
+    -fx-background-insets: 0;
+}
+
+.root .tabla-productos .table-row-cell:selected .table-cell {
+    -fx-text-fill: #0B3A6E;
+}
+
+.root .tabla-productos .table-cell {
+    -fx-padding: 8 12;            /* ↑ aire */
+    -fx-border-color: transparent transparent rgba(0,0,0,0.04) transparent;
+    -fx-border-width: 0 0 1 0;
+    -fx-font-size: 14.5px;        /* ↑ lectura */
+}
+
+/* Alineaciones por columna */
+.root .tabla-productos .column-header .label.col-precio,
+.root .tabla-productos .column-header .label.col-cantidad {
+    -fx-alignment: CENTER-RIGHT;
+}
+.root .tabla-productos .table-cell.col-precio,
+.root .tabla-productos .table-cell.col-cantidad {
+    -fx-alignment: CENTER-RIGHT;
+}
+
+/* ID en monoespaciada + elipsis */
+.root .tabla-productos .table-cell.col-id,
+.root .tabla-productos .id-cell {
+    -fx-font-family: "Consolas", "Cascadia Mono", monospace;
+    -fx-font-size: 13px;          /* un poquito menor para que quepa */
+    -fx-text-fill: #64748B;
+}
+
+/* Placeholder */
+.root .tabla-productos .placeholder .label {
+    -fx-text-fill: #94A3B8;
+    -fx-font-size: 13px;
+    -fx-opacity: 0.95;
+}
+
+/* Scrollbars sutiles */
+.root .tabla-productos .virtual-flow .scroll-bar:vertical,
+.root .tabla-productos .virtual-flow .scroll-bar:horizontal {
+    -fx-background-color: transparent;
+}
+.root .tabla-productos .virtual-flow .scroll-bar .thumb {
+    -fx-background-color: rgba(0,0,0,0.24);
+    -fx-background-insets: 2;
+    -fx-background-radius: 8;
+}
+.root .tabla-productos .virtual-flow .scroll-bar .thumb:hover {
+    -fx-background-color: rgba(0,0,0,0.34);
+}
+
+/* Filler y foco */
+.root .tabla-productos .filler { -fx-background-color: transparent; }
+.root .tabla-productos:focused {
+    -fx-background-insets: 0;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.05), 16, 0.2, 0, 2);
+}
+
+/* Estado deshabilitado */
+.root .tabla-productos:disabled { -fx-opacity: 0.6; }

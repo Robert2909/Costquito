@@ -1,0 +1,11 @@
+.root .notif-success {
+    -fx-text-fill: #005BAD;             /* azul */
+}
+
+.root .notif-error {
+    -fx-text-fill: #E61031;             /* rojo */
+}
+
+.root .notif-info {
+    -fx-text-fill: #111111;             /* negro */
+}

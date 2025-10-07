@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -10,6 +14,8 @@
    <children>
       <Pane fx:id="barraSuperiorPane" layoutX="10.0" layoutY="10.0" prefHeight="200.0" prefWidth="1900.0" styleClass="panel" stylesheets="@../css/Panel.css">
          <children>
+            <Button fx:id="regresarButton" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#regresarInicarSesion" prefHeight="40.0" prefWidth="40.0" styleClass="boton-regresar" stylesheets="@../css/PanelAdministrador/Boton-regresar.css" text="&lt;" />
+            <Button fx:id="cerrarButton" layoutX="1846.0" layoutY="14.0" mnemonicParsing="false" onAction="#cerrarPrograma" prefHeight="40.0" prefWidth="40.0" styleClass="boton-cerrar" stylesheets="@../css/Boton-Cerrar.css" text="x" />
             <Pane fx:id="logoPane" layoutX="68.0" layoutY="40.0" prefHeight="120.0" prefWidth="300.0" styleClass="panel">
                <children>
                   <ImageView fx:id="logoImageView" fitHeight="120.0" fitWidth="300.0" pickOnBounds="true" preserveRatio="true">
@@ -18,14 +24,40 @@
                      </image>
                   </ImageView>
                </children></Pane>
-            <Button fx:id="cerrarButton" layoutX="1846.0" layoutY="14.0" mnemonicParsing="false" onAction="#cerrarPrograma" prefHeight="40.0" prefWidth="40.0" styleClass="boton-cerrar" stylesheets="@../css/Boton-Cerrar.css" text="x" />
-            <Button fx:id="regresarButton" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#regresarInicarSesion" prefHeight="40.0" prefWidth="40.0" styleClass="boton-regresar" stylesheets="@../css/PanelAdministrador/Boton-regresar.css" text="&lt;" />
             <Button fx:id="administracionButton" disable="true" layoutX="382.0" layoutY="50.0" mnemonicParsing="false" onAction="#irAdministracion" prefHeight="100.0" prefWidth="300.0" styleClass="boton-tab" stylesheets="@../css/PanelAdministrador/Botones-Barra-superior-seleccionado.css" text="Administración" />
             <Button fx:id="ventasButton" layoutX="696.0" layoutY="50.0" mnemonicParsing="false" onAction="#irVentas" prefHeight="100.0" prefWidth="300.0" styleClass="boton-tab" stylesheets="@../css/PanelAdministrador/Botones-Barra-superior.css" text="Ventas" />
             <Button fx:id="reportesButton" layoutX="1010.0" layoutY="50.0" mnemonicParsing="false" onAction="#irReportes" prefHeight="100.0" prefWidth="300.0" styleClass="boton-tab" stylesheets="@../css/PanelAdministrador/Botones-Barra-superior.css" text="Reportes" />
+            <Button fx:id="cuentasButton" layoutX="1324.0" layoutY="49.0" mnemonicParsing="false" onAction="#irCuentas" prefHeight="100.0" prefWidth="300.0" styleClass="boton-tab" stylesheets="@../css/PanelAdministrador/Botones-Barra-superior.css" text="Cuentas" />
          </children>
       </Pane>
-      <Pane fx:id="contenidoPane" layoutX="10.0" layoutY="220.0" prefHeight="850.0" prefWidth="1900.0" styleClass="panel" stylesheets="@../css/Panel.css" />
-      <Button fx:id="cuentasButton" layoutX="1334.0" layoutY="59.0" mnemonicParsing="false" onAction="#irCuentas" prefHeight="100.0" prefWidth="300.0" styleClass="boton-tab" stylesheets="@../css/PanelAdministrador/Botones-Barra-superior.css" text="Cuentas" />
+      <Pane fx:id="contenidoPane" layoutX="10.0" layoutY="220.0" prefHeight="850.0" prefWidth="1900.0" styleClass="panel" stylesheets="@../css/Panel.css">
+         <children>
+            <TextField fx:id="barraBusquedaTextField" layoutX="25.0" layoutY="25.0" prefHeight="59.0" prefWidth="1625.0" promptText="🔎 Busca un producto..." styleClass="input" stylesheets="@../css/Input.css" />
+            <Button fx:id="buscarProductoButton" layoutX="1675.0" layoutY="25.0" mnemonicParsing="false" onAction="#buscarProducto" prefWidth="200.0" styleClass="boton-normal" stylesheets="@../css/Boton-Normal.css" text="Buscar" />
+            <Label fx:id="nombreProductoLabel" layoutX="25.0" layoutY="109.0" styleClass="subtitulo-label" stylesheets="@../css/Titulo-Label.css" text="Nombre del producto" />
+            <TextField fx:id="nombreProductoTextField" layoutX="25.0" layoutY="169.0" prefWidth="910.0" promptText="📝 Escribe aqui..." styleClass="input" stylesheets="@../css/Input.css" />
+            <Label fx:id="precioProductoLabel" layoutX="25.0" layoutY="309.0" styleClass="subtitulo-label" stylesheets="@../css/Titulo-Label.css" text="Precio del producto" />
+            <TextField fx:id="precioProductoTextField" layoutX="25.0" layoutY="359.0" prefWidth="910.0" promptText="💲 Escribe aqui..." styleClass="input" stylesheets="@../css/Input.css" />
+            <Label fx:id="cantidadProductoLabel" layoutX="25.0" layoutY="509.0" styleClass="subtitulo-label" stylesheets="@../css/Titulo-Label.css" text="Cantidad de productos" />
+            <TextField fx:id="cantidadProductoTextField" layoutX="25.0" layoutY="559.0" prefWidth="910.0" promptText="📦 Escribe aqui..." styleClass="input" stylesheets="@../css/Input.css" />
+            <Button fx:id="reducir1productoButton" layoutX="25.0" layoutY="634.0" mnemonicParsing="false" onAction="#reducir1Producto" prefWidth="445.0" styleClass="boton-regresar" stylesheets="@../css/PanelAdministrador/Boton-regresar.css" text="-1" />
+            <Button fx:id="aumentar1productoButton" layoutX="490.0" layoutY="634.0" mnemonicParsing="false" onAction="#aumentar1Producto" prefWidth="445.0" styleClass="boton-regresar" stylesheets="@../css/PanelAdministrador/Boton-regresar.css" text="+1" />
+            <Button fx:id="agregarProductoButton" disable="true" layoutX="30.0" layoutY="693.0" mnemonicParsing="false" onAction="#agregarProducto" prefWidth="280.0" styleClass="boton-normal" stylesheets="@../css/Boton-Normal.css" text="Agregar producto" />
+            <Button fx:id="editarProductoButton" disable="true" layoutX="340.0" layoutY="693.0" mnemonicParsing="false" onAction="#editarProducto" prefWidth="280.0" styleClass="boton-normal" stylesheets="@../css/Boton-Normal.css" text="Editar producto" />
+            <Button fx:id="eliminarProductoButton" disable="true" layoutX="650.0" layoutY="693.0" mnemonicParsing="false" onAction="#eliminarProducto" prefWidth="280.0" styleClass="boton-normal" stylesheets="@../css/Boton-Normal.css" text="Eliminar producto" />
+            <Label fx:id="notificacionLabel" alignment="CENTER" layoutX="25.0" layoutY="782.0" prefWidth="910.0" styleClass="normal-label" stylesheets="@../css/Titulo-Label.css" text="..." textAlignment="CENTER" />
+            <Pane fx:id="productosPane" layoutX="965.0" layoutY="109.0" prefHeight="641.0" prefWidth="910.0" styleClass="panel" stylesheets="@../css/Panel.css">
+               <children>
+                  <TableView fx:id="productosTableView" prefHeight="641.0" prefWidth="910.0" styleClass="tabla-productos" stylesheets="@../css/Tables.css">
+                    <columns>
+                      <TableColumn fx:id="nombreTableColumn" prefWidth="75.0" text="Nombre" />
+                      <TableColumn fx:id="precioTableColumn" prefWidth="75.0" text="Precio" />
+                        <TableColumn fx:id="cantidadTableColumn" prefWidth="75.0" text="Cantidad" />
+                        <TableColumn fx:id="idTableColumn" prefWidth="75.0" text="ID" />
+                    </columns>
+                  </TableView>
+               </children></Pane>
+            <Button fx:id="cancelarSeleccionButton" disable="true" layoutX="1270.0" layoutY="775.0" mnemonicParsing="false" onAction="#cancelarSeleccion" prefHeight="50.0" prefWidth="300.0" styleClass="boton-regresar" stylesheets="@../css/PanelAdministrador/Boton-regresar.css" text="Cancelar selección" />
+         </children></Pane>
    </children>
 </AnchorPane>

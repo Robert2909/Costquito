@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+
+<AnchorPane id="AnchorPane" fx:id="PanelVendedorOpcion1AnchorPane" prefHeight="1080.0" prefWidth="1920.0" styleClass="background" stylesheets="@../css/Background.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="costquito.controllers.PanelVendedorOpcion1Controller">
+   <children>
+      <Pane fx:id="barraSuperiorPane" layoutX="10.0" layoutY="10.0" prefHeight="200.0" prefWidth="1900.0" styleClass="panel" stylesheets="@../css/Panel.css">
+         <children>
+            <Button fx:id="regresarButton" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#regresarInicarSesion" prefHeight="40.0" prefWidth="40.0" styleClass="boton-regresar" stylesheets="@../css/PanelAdministrador/Boton-regresar.css" text="&lt;" />
+            <Button fx:id="cerrarButton" layoutX="1846.0" layoutY="14.0" mnemonicParsing="false" onAction="#cerrarPrograma" prefHeight="40.0" prefWidth="40.0" styleClass="boton-cerrar" stylesheets="@../css/Boton-Cerrar.css" text="x" />
+            <Pane fx:id="logoPane" layoutX="68.0" layoutY="40.0" prefHeight="120.0" prefWidth="300.0" styleClass="panel">
+               <children>
+                  <ImageView fx:id="logoImageView" fitHeight="120.0" fitWidth="300.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../media/Logo.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </Pane>
+            <Button fx:id="ventasButton" disable="true" layoutX="382.0" layoutY="50.0" mnemonicParsing="false" onAction="#irVentas" prefHeight="100.0" prefWidth="300.0" styleClass="boton-tab" stylesheets="@../css/PanelAdministrador/Botones-Barra-superior-seleccionado.css" text="Ventas" />
+         </children>
+      </Pane>
+      <Pane fx:id="contenidoPane" layoutX="10.0" layoutY="220.0" prefHeight="850.0" prefWidth="1900.0" styleClass="panel" stylesheets="@../css/Panel.css" />
+   </children>
+</AnchorPane>

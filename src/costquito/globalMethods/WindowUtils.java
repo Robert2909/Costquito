@@ -106,7 +106,4 @@ public final class WindowUtils {
         if (Platform.isFxApplicationThread()) r.run();
         else Platform.runLater(r);
     }
-}
-
-// PREGUNTAR DONDE ESTA EL LOG
-// PEDIR PRINTEARLO 
+}   

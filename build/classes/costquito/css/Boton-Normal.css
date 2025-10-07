@@ -1,0 +1,18 @@
+.boton-normal {
+    -fx-background-color: #005BAD;
+    -fx-text-fill: #FFFFFF;
+    -fx-font-weight: 600;
+    -fx-font-size: 30px;
+    -fx-font-family: "Segoe UI", system-ui, sans-serif;
+    -fx-background-radius: 12;
+    -fx-padding: 10 16;
+    -fx-cursor: hand;
+}
+
+.boton-normal:hover {
+    -fx-background-color: #0A6CC9;
+}
+
+.boton-normal:armed {
+    -fx-background-color: #004a8d;
+}

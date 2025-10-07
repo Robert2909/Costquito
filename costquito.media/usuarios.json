@@ -1,6 +1,6 @@
 [
   {
-    "username": "Magaly",
+    "username": "123",
     "passwordHash": "plain:123",
     "enabled": true,
     "role": "ADMIN"
