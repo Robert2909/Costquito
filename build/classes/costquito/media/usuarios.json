@@ -7,8 +7,8 @@
     "displayName": "Administrador General"
   },
   {
-    "username": "456",
-    "passwordHash": "plain:456",
+    "username": "234",
+    "passwordHash": "plain:234",
     "enabled": true,
     "role": "VENDOR",
     "displayName": "Vendedor Punto 1"

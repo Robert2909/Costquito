@@ -143,3 +143,18 @@
 {"ts":"2025-10-09T04:13:21.7318035-06:00","level":"AUDIT","event":"navigate_success","user":"123","view":"panel_admin_opcion1","thread":"JavaFX Application Thread","extras":{"routeId":"panel_admin_opcion4","cache":false}}
 {"ts":"2025-10-09T04:13:33.4018951-06:00","level":"AUDIT","event":"app_close_requested","user":"123","view":"panel_admin_opcion1","thread":"JavaFX Application Thread"}
 {"ts":"2025-10-09T04:13:33.4113289-06:00","level":"AUDIT","event":"app_terminated","user":"123","view":"panel_admin_opcion1","thread":"JavaFX Application Thread"}
+{"ts":"2025-10-09T04:22:08.424574-06:00","level":"AUDIT","event":"media_base_dir_set","thread":"JavaFX Application Thread","extras":{"media":"C:\\Drive\\Mi unidad\\UV\\5. Semestre\\1. Trabajo\\5. Gestión del proceso de desarrollo de software\\4. Proyectos\\Costquito_ROOT\\Costquito\\src\\costquito\\media"}}
+{"ts":"2025-10-09T04:22:08.4451208-06:00","level":"AUDIT","event":"window_init","thread":"JavaFX Application Thread","extras":{"style":"UNDECORATED","fullscreen":true}}
+{"ts":"2025-10-09T04:22:08.4734634-06:00","level":"AUDIT","event":"route_registered","thread":"JavaFX Application Thread","extras":{"id":"login"}}
+{"ts":"2025-10-09T04:22:08.4854907-06:00","level":"AUDIT","event":"route_registered","thread":"JavaFX Application Thread","extras":{"id":"panel_admin_opcion1"}}
+{"ts":"2025-10-09T04:22:08.5090516-06:00","level":"AUDIT","event":"route_registered","thread":"JavaFX Application Thread","extras":{"id":"panel_admin_opcion2"}}
+{"ts":"2025-10-09T04:22:08.5240589-06:00","level":"AUDIT","event":"route_registered","thread":"JavaFX Application Thread","extras":{"id":"panel_admin_opcion3"}}
+{"ts":"2025-10-09T04:22:08.5435695-06:00","level":"AUDIT","event":"route_registered","thread":"JavaFX Application Thread","extras":{"id":"panel_admin_opcion4"}}
+{"ts":"2025-10-09T04:22:08.5575769-06:00","level":"AUDIT","event":"route_registered","thread":"JavaFX Application Thread","extras":{"id":"panel_vendedor_opcion1"}}
+{"ts":"2025-10-09T04:22:10.0882937-06:00","level":"AUDIT","event":"navigate_success","thread":"JavaFX Application Thread","extras":{"routeId":"login","cache":false}}
+{"ts":"2025-10-09T04:22:10.0968035-06:00","level":"AUDIT","event":"app_started","thread":"JavaFX Application Thread","extras":{"route":"login"}}
+{"ts":"2025-10-09T04:22:15.1398005-06:00","level":"AUDIT","event":"login_success","user":"234","thread":"JavaFX Application Thread","extras":{"sessionId":"7cc25166-7cd7-4909-97df-302385a238a9","role":"VENDOR"}}
+{"ts":"2025-10-09T04:22:15.2762263-06:00","level":"AUDIT","event":"navigate_success","user":"234","view":"panel_vendedor_opcion1","thread":"JavaFX Application Thread","extras":{"routeId":"panel_vendedor_opcion1","cache":false}}
+{"ts":"2025-10-09T04:22:15.2817287-06:00","level":"AUDIT","event":"navigate_after_login","user":"234","view":"panel_vendedor_opcion1","thread":"JavaFX Application Thread","extras":{"to":"panel_vendedor_opcion1"}}
+{"ts":"2025-10-09T04:22:16.7358119-06:00","level":"AUDIT","event":"app_close_requested","user":"234","view":"panel_vendedor_opcion1","thread":"JavaFX Application Thread"}
+{"ts":"2025-10-09T04:22:16.7431389-06:00","level":"AUDIT","event":"app_terminated","user":"234","view":"panel_vendedor_opcion1","thread":"JavaFX Application Thread"}
