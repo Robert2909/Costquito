@@ -87,11 +87,13 @@ public class PanelAdminOpcion1Controller implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         ProductRepository.init();
-        costquito.globalMethods.ProductRepository.reload();
+        ProductRepository.reload();
+
         java.nio.file.Path p = java.nio.file.Paths.get("costquito.media", "productos.json");
-        costquito.globalMethods.LogUtils.info("productos_json_path",
+        costquito.globalMethods.LogUtils.audit("productos_json_path",
                 "abs", p.toAbsolutePath().toString(),
                 "exists", java.nio.file.Files.exists(p));
+
         setupTable();              // columnas + clases CSS
         loadTable("");             // sin filtro al iniciar
 

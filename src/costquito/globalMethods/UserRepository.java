@@ -8,27 +8,29 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.lang.reflect.Type;
 import java.nio.charset.StandardCharsets;
+import java.nio.file.AtomicMoveNotSupportedException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.nio.file.StandardCopyOption;
+import java.nio.file.StandardOpenOption;
 import java.util.ArrayList;
 import java.util.EnumSet;
 import java.util.List;
 
-/**
- * Repositorio estático de usuarios respaldado en JSON.
- * Archivo en disco: costquito.media/usuarios.json
- *
- * Métodos usados por el proyecto:
- *  - initResource(String classpathResource)
- *  - init(), reload(), save()
- *  - findByRole(UserRole), findByUsername(String)
- *  - updateCredentials(UserRole, username, plainPassword)
- *  - updateUsername(UserRole, username), updatePassword(UserRole, plainPassword)
- */
 public final class UserRepository {
+    
+    private static Path MEDIA_DIR = Paths.get("src", "costquito", "media");
+    private static Path USERS_PATH = MEDIA_DIR.resolve("usuarios.json");
 
-    private static final Path USERS_PATH = Paths.get("costquito.media", "usuarios.json");
+    public static synchronized void setBaseDir(Path dir) {
+        if (dir != null) MEDIA_DIR = dir;
+        USERS_PATH = MEDIA_DIR.resolve("usuarios.json");
+        LogUtils.info("users_base_dir_set",
+                "base", MEDIA_DIR.toAbsolutePath().toString(),
+                "file", USERS_PATH.toAbsolutePath().toString());
+    }
+    
     private static final Gson GSON = new GsonBuilder()
             .setPrettyPrinting()
             .registerTypeAdapter(UserRole.class, (com.google.gson.JsonDeserializer<UserRole>) (json, type, ctx) -> {
@@ -46,7 +48,6 @@ public final class UserRepository {
 
     private static final java.lang.reflect.Type LIST_TYPE =
             new com.google.gson.reflect.TypeToken<java.util.List<UserRecord>>() {}.getType();
-
 
     private static List<UserRecord> cache = new ArrayList<>();
     private static boolean initialized = false;
@@ -99,17 +100,29 @@ public final class UserRepository {
             e.printStackTrace();
             cache = new ArrayList<>();
         }
+        LogUtils.info("users_init_or_reload",
+            "abs", USERS_PATH.toAbsolutePath().toString(),
+            "exists", Files.exists(USERS_PATH));
     }
 
     /** Persiste el cache al JSON. */
     public static synchronized void save() {
         try {
-            if (cache == null) cache = new ArrayList<>();
             Files.createDirectories(USERS_PATH.getParent());
             String json = GSON.toJson(cache, LIST_TYPE);
-            Files.writeString(USERS_PATH, json, StandardCharsets.UTF_8);
+
+            Path tmp = USERS_PATH.resolveSibling(USERS_PATH.getFileName() + ".tmp");
+            Files.writeString(tmp, json, StandardCharsets.UTF_8, StandardOpenOption.CREATE, StandardOpenOption.TRUNCATE_EXISTING);
+
+            try {
+                Files.move(tmp, USERS_PATH, StandardCopyOption.ATOMIC_MOVE, StandardCopyOption.REPLACE_EXISTING);
+            } catch (AtomicMoveNotSupportedException ex) {
+                Files.move(tmp, USERS_PATH, StandardCopyOption.REPLACE_EXISTING);
+            }
+
+            LogUtils.info("users_save_ok", "abs", USERS_PATH.toAbsolutePath().toString());
         } catch (IOException e) {
-            e.printStackTrace();
+            LogUtils.error("users_save_error", e, "abs", USERS_PATH.toAbsolutePath().toString());
         }
     }
 

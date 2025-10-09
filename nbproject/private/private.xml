@@ -3,13 +3,10 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/G:/Mi%20unidad/UV/5.%20Semestre/1.%20Trabajo/5.%20Gestión%20del%20proceso%20de%20desarrollo%20de%20software/4.%20Proyectos/Costquito_ROOT/Costquito/src/costquito/media/usuarios.json</file>
-            <file>file:/G:/Mi%20unidad/UV/5.%20Semestre/1.%20Trabajo/5.%20Gestión%20del%20proceso%20de%20desarrollo%20de%20software/4.%20Proyectos/Costquito_ROOT/Costquito/src/costquito/fxml/PanelAdminOpcion4.fxml</file>
-            <file>file:/G:/Mi%20unidad/UV/5.%20Semestre/1.%20Trabajo/5.%20Gestión%20del%20proceso%20de%20desarrollo%20de%20software/4.%20Proyectos/Costquito_ROOT/Costquito/src/costquito/globalMethods/PasswordUtils.java</file>
-            <file>file:/G:/Mi%20unidad/UV/5.%20Semestre/1.%20Trabajo/5.%20Gestión%20del%20proceso%20de%20desarrollo%20de%20software/4.%20Proyectos/Costquito_ROOT/Costquito/src/costquito/globalMethods/UserRecord.java</file>
-            <file>file:/G:/Mi%20unidad/UV/5.%20Semestre/1.%20Trabajo/5.%20Gestión%20del%20proceso%20de%20desarrollo%20de%20software/4.%20Proyectos/Costquito_ROOT/Costquito/src/costquito/controllers/PanelAdminOpcion4Controller.java</file>
-            <file>file:/G:/Mi%20unidad/UV/5.%20Semestre/1.%20Trabajo/5.%20Gestión%20del%20proceso%20de%20desarrollo%20de%20software/4.%20Proyectos/Costquito_ROOT/Costquito/src/costquito/globalMethods/UserRepository.java</file>
-            <file>file:/G:/Mi%20unidad/UV/5.%20Semestre/1.%20Trabajo/5.%20Gestión%20del%20proceso%20de%20desarrollo%20de%20software/4.%20Proyectos/Costquito_ROOT/Costquito/src/costquito/globalMethods/UserRole.java</file>
+            <file>file:/G:/Mi%20unidad/UV/5.%20Semestre/1.%20Trabajo/5.%20Gestión%20del%20proceso%20de%20desarrollo%20de%20software/4.%20Proyectos/Costquito_ROOT/Costquito/src/costquito/globalMethods/ProductRepository.java</file>
+            <file>file:/G:/Mi%20unidad/UV/5.%20Semestre/1.%20Trabajo/5.%20Gestión%20del%20proceso%20de%20desarrollo%20de%20software/4.%20Proyectos/Costquito_ROOT/Costquito/src/costquito/globalMethods/ProductRecord.java</file>
+            <file>file:/G:/Mi%20unidad/UV/5.%20Semestre/1.%20Trabajo/5.%20Gestión%20del%20proceso%20de%20desarrollo%20de%20software/4.%20Proyectos/Costquito_ROOT/Costquito/src/costquito/media/productos.json</file>
+            <file>file:/G:/Mi%20unidad/UV/5.%20Semestre/1.%20Trabajo/5.%20Gestión%20del%20proceso%20de%20desarrollo%20de%20software/4.%20Proyectos/Costquito_ROOT/Costquito/src/costquito/controllers/PanelAdminOpcion1Controller.java</file>
         </group>
     </open-files>
 </project-private>

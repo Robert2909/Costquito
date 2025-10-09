@@ -18,6 +18,22 @@ public class Costquito extends Application {
             LogUtils.setMinLevel(LogUtils.Level.AUDIT);
             LogUtils.setConsoleMirror(true);
 
+            // ======== FIJA AQUÍ la carpeta de datos ========
+            java.nio.file.Path MEDIA = java.nio.file.Paths
+                    .get("src", "costquito", "media")
+                    .toAbsolutePath()
+                    .normalize();
+
+            costquito.globalMethods.ProductRepository.setBaseDir(MEDIA);
+            costquito.globalMethods.UserRepository.setBaseDir(MEDIA);
+
+            LogUtils.audit("media_base_dir_set",
+                    "media", MEDIA.toString());
+
+            // (opcional) crea los JSON de ejemplo si no existen
+            costquito.globalMethods.UserRepository.initResource("/costquito/media/usuarios.json");
+            // =================================================
+
             WindowUtils.initPrimaryStage(primaryStage);
             Views.registerAll();
 
@@ -26,15 +42,12 @@ public class Costquito extends Application {
 
             primaryStage.setTitle("Costquito");
             primaryStage.show();
-            
-            UserRepository.initResource("/costquito/media/usuarios.json");
 
         } catch (Exception e) {
             LogUtils.error("fatal_boot_error", e);
             throw e;
         }
     }
-
 
     public static void main(String[] args) {
         launch(args);
