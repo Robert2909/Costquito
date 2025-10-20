@@ -26,6 +26,7 @@ import java.text.DecimalFormatSymbols;
 import java.util.Locale;
 import java.util.Optional;
 import java.util.ResourceBundle;
+import javafx.beans.binding.Bindings;
 
 public class PanelAdminOpcion1Controller implements Initializable {
 
@@ -99,6 +100,7 @@ public class PanelAdminOpcion1Controller implements Initializable {
 
         setupMasksAndValidation();
         setupSearchBar();
+        bindSearchButtonToTextfield();
         setupButtonsAndShortcuts();
         goInitialState();
         LogUtils.audit("admin_inventario_opened");
@@ -451,6 +453,18 @@ public class PanelAdminOpcion1Controller implements Initializable {
         if (c == null) c = 0;
         c = Math.max(0, c - 1);
         cantidadProductoTextField.setText(String.valueOf(c));
+    }
+    
+    private void bindSearchButtonToTextfield() {
+        buscarProductoButton.disableProperty().bind(
+            Bindings.createBooleanBinding(
+                () -> {
+                    String t = barraBusquedaTextField.getText();
+                    return t == null || t.trim().isEmpty();
+                },
+                barraBusquedaTextField.textProperty()
+            )
+        );
     }
 
     // ======== Navegación / cierre ========

@@ -1,0 +1,83 @@
+/* ComboBox “pill” como el botón blanco */
+.combo-pago {
+    -fx-background-color: #FFFFFF;
+    -fx-text-fill: #64748B;
+    -fx-background-radius: 50;
+    -fx-border-color: #E5E7EB;
+    -fx-border-radius: 50;
+    -fx-padding: 6 18;
+    -fx-font-size: 18px;
+    -fx-font-family: "Segoe UI", system-ui, sans-serif;
+    -fx-cursor: hand;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.15), 6, 0.2, 0, 2);
+
+    /* Anula el halo morado por defecto y usa el borde azul suave como en el botón */
+    -fx-faint-focus-color: transparent;
+    -fx-focus-color: rgba(16, 30, 230, 0.25);
+}
+
+/* Texto/área visible dentro del ComboBox */
+.combo-pago .list-cell {
+    -fx-background-color: transparent;
+    -fx-text-fill: inherit;
+    -fx-padding: 0 0 0 2;
+}
+
+/* Hover igual que el botón blanco */
+.combo-pago:hover {
+    -fx-background-color: rgba(30, 16, 230, 0.10);
+    -fx-text-fill: #105be6;
+    -fx-border-color: rgba(16, 30, 230, 0.25);
+}
+
+/* Focus/mostrando menú: mantiene el borde azul suave */
+.combo-pago:focused,
+.combo-pago:showing {
+    -fx-border-color: rgba(16, 30, 230, 0.25);
+}
+
+/* Disabled como el botón blanco deshabilitado, sin bajar opacidad del control */
+.combo-pago:disabled {
+    -fx-opacity: 1;
+    -fx-background-color: #FFFFFF;
+    -fx-border-color: #E5E7EB;
+    -fx-text-fill: #94A3B8;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.12), 4, 0.18, 0, 1);
+    -fx-cursor: default;
+}
+
+/* Botón/flecha del desplegable */
+.combo-pago .arrow-button {
+    -fx-background-color: transparent;
+    -fx-background-insets: 0;
+    -fx-padding: 0 12 0 8;
+    -fx-background-radius: 50;
+    -fx-border-radius: 50;
+}
+.combo-pago .arrow {
+    -fx-background-color: #64748B;
+}
+.combo-pago:hover .arrow {
+    -fx-background-color: #105be6;
+}
+
+/* Popup del ComboBox (lista) con mismo look limpio */
+.combo-box-popup .list-view {
+    -fx-background-color: #FFFFFF;
+    -fx-background-radius: 14;
+    -fx-border-color: #E5E7EB;
+    -fx-border-radius: 14;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.15), 12, 0.22, 0, 4);
+    -fx-padding: 6;
+}
+.combo-box-popup .list-view .list-cell {
+    -fx-background-color: transparent;
+    -fx-text-fill: #334155;
+    -fx-font-size: 16px;
+    -fx-padding: 10 14;
+}
+.combo-box-popup .list-view .list-cell:filled:hover,
+.combo-box-popup .list-view .list-cell:filled:selected {
+    -fx-background-color: rgba(30, 16, 230, 0.10);
+    -fx-text-fill: #105be6;
+}

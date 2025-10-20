@@ -64,5 +64,16 @@ public final class SessionManager {
         }
         return rec.role;
     }
+    
+    public static String getUsername() {
+        UserSession u = getCurrent();
+        String name = (u != null) ? u.getUsername() : null;
+        return (name != null && !name.isBlank()) ? name : "desconocido";
+    }
+
+    // Alias opcional si en algún lado ya usabas este nombre:
+    public static String getCurrentUsername() {
+        return getUsername();
+    }
 
 }

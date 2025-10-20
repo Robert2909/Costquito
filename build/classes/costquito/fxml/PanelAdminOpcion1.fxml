@@ -33,7 +33,7 @@
       <Pane fx:id="contenidoPane" layoutX="10.0" layoutY="220.0" prefHeight="850.0" prefWidth="1900.0" styleClass="panel" stylesheets="@../css/Panel.css">
          <children>
             <TextField fx:id="barraBusquedaTextField" layoutX="25.0" layoutY="25.0" prefHeight="59.0" prefWidth="1625.0" promptText="🔎 Busca un producto..." styleClass="input" stylesheets="@../css/Input.css" />
-            <Button fx:id="buscarProductoButton" layoutX="1675.0" layoutY="25.0" mnemonicParsing="false" onAction="#buscarProducto" prefWidth="200.0" styleClass="boton-normal" stylesheets="@../css/Boton-Normal.css" text="Buscar" />
+            <Button fx:id="buscarProductoButton" disable="true" layoutX="1675.0" layoutY="25.0" mnemonicParsing="false" onAction="#buscarProducto" prefWidth="200.0" styleClass="boton-normal" stylesheets="@../css/Boton-Normal.css" text="Buscar" />
             <Label fx:id="nombreProductoLabel" layoutX="25.0" layoutY="109.0" styleClass="subtitulo-label" stylesheets="@../css/Titulo-Label.css" text="Nombre del producto" />
             <TextField fx:id="nombreProductoTextField" layoutX="25.0" layoutY="169.0" prefWidth="910.0" promptText="📝 Escribe aqui..." styleClass="input" stylesheets="@../css/Input.css" />
             <Label fx:id="precioProductoLabel" layoutX="25.0" layoutY="309.0" styleClass="subtitulo-label" stylesheets="@../css/Titulo-Label.css" text="Precio del producto" />
@@ -46,9 +46,10 @@
             <Button fx:id="editarProductoButton" disable="true" layoutX="340.0" layoutY="693.0" mnemonicParsing="false" onAction="#editarProducto" prefWidth="280.0" styleClass="boton-normal" stylesheets="@../css/Boton-Normal.css" text="Editar producto" />
             <Button fx:id="eliminarProductoButton" disable="true" layoutX="650.0" layoutY="693.0" mnemonicParsing="false" onAction="#eliminarProducto" prefWidth="280.0" styleClass="boton-normal" stylesheets="@../css/Boton-Normal.css" text="Eliminar producto" />
             <Label fx:id="notificacionLabel" alignment="CENTER" layoutX="25.0" layoutY="782.0" prefWidth="910.0" styleClass="normal-label" stylesheets="@../css/Titulo-Label.css" text="..." textAlignment="CENTER" />
-            <Pane fx:id="productosPane" layoutX="965.0" layoutY="109.0" prefHeight="641.0" prefWidth="910.0" styleClass="panel" stylesheets="@../css/Panel.css">
+            <Label fx:id="tituloProductosLabel" layoutX="965.0" layoutY="109.0" styleClass="subtitulo-label" stylesheets="@../css/Titulo-Label.css" text="Lista de productos" />
+            <Pane fx:id="productosPane" layoutX="965.0" layoutY="169.0" prefHeight="581.0" prefWidth="910.0" styleClass="panel" stylesheets="@../css/Panel.css">
                <children>
-                  <TableView fx:id="productosTableView" prefHeight="641.0" prefWidth="910.0" styleClass="tabla-productos" stylesheets="@../css/Tables.css">
+                  <TableView fx:id="productosTableView" prefHeight="581.0" prefWidth="910.0" styleClass="tabla-productos" stylesheets="@../css/Tables.css">
                     <columns>
                       <TableColumn fx:id="nombreTableColumn" prefWidth="75.0" text="Nombre" />
                       <TableColumn fx:id="precioTableColumn" prefWidth="75.0" text="Precio" />

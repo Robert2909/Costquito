@@ -22,3 +22,30 @@
     -fx-text-fill: #105be6;
     -fx-border-color: rgba(16, 30, 230, 0.25);
 }
+
+/* Modificación conveniente */
+
+.boton-regresar-modificado {
+    -fx-background-color: #005BAD;
+    -fx-text-fill: #FFFFFF;
+    -fx-background-radius: 50; /* círculo perfecto */
+    -fx-padding: 6 8;
+    -fx-font-size: 18px;
+    -fx-font-family: "Segoe UI", system-ui, sans-serif;
+    -fx-cursor: hand;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.15), 6, 0.2, 0, 2);
+    -fx-border-color: #E5E7EB;
+    -fx-border-radius: 50;
+}
+
+.boton-regresar-modificado:hover {
+    -fx-background-color: rgba(30, 16, 230, 0.1);
+    -fx-text-fill: #0A6CC9;
+    -fx-border-color: rgba(16, 30, 230, 0.25);
+}
+
+.boton-regresar-modificado:armed {
+    -fx-background-color: rgba(30, 16, 230, 0.1);
+    -fx-text-fill: #004a8d;
+    -fx-border-color: rgba(16, 30, 230, 0.25);
+}

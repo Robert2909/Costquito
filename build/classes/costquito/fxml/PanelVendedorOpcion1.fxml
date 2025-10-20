@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -24,6 +29,53 @@
             <Button fx:id="ventasButton" disable="true" layoutX="382.0" layoutY="50.0" mnemonicParsing="false" onAction="#irVentas" prefHeight="100.0" prefWidth="300.0" styleClass="boton-tab" stylesheets="@../css/PanelAdministrador/Botones-Barra-superior-seleccionado.css" text="Ventas" />
          </children>
       </Pane>
-      <Pane fx:id="contenidoPane" layoutX="10.0" layoutY="220.0" prefHeight="850.0" prefWidth="1900.0" styleClass="panel" stylesheets="@../css/Panel.css" />
+      <Pane fx:id="contenidoPane" layoutX="10.0" layoutY="220.0" prefHeight="850.0" prefWidth="1900.0" styleClass="panel" stylesheets="@../css/Panel.css">
+         <children>
+            <TextField fx:id="barraBusquedaTextField" layoutX="25.0" layoutY="25.0" prefHeight="59.0" prefWidth="1625.0" promptText="🔎 Busca un producto..." styleClass="input" stylesheets="@../css/Input.css" />
+            <Button fx:id="buscarProductoButton" disable="true" layoutX="1675.0" layoutY="25.0" mnemonicParsing="false" onAction="#buscarProducto" prefWidth="200.0" styleClass="boton-normal" stylesheets="@../css/Boton-Normal.css" text="Buscar" />
+            <Label fx:id="tituloProductosLabel" layoutX="25.0" layoutY="109.0" styleClass="subtitulo-label" stylesheets="@../css/Titulo-Label.css" text="Lista de productos" />
+            <Pane fx:id="productosPane" layoutX="25.0" layoutY="169.0" prefHeight="320.0" prefWidth="910.0" styleClass="panel" stylesheets="@../css/Panel.css">
+               <children>
+                  <TableView fx:id="productosTableView" prefHeight="320.0" prefWidth="910.0" styleClass="tabla-productos" stylesheets="@../css/Tables.css">
+                     <columns>
+                        <TableColumn fx:id="nombreTableColumn" prefWidth="75.0" text="Nombre" />
+                        <TableColumn fx:id="precioTableColumn" prefWidth="75.0" text="Precio" />
+                        <TableColumn fx:id="cantidadTableColumn" prefWidth="75.0" text="Cantidad" />
+                        <TableColumn fx:id="idTableColumn" prefWidth="75.0" text="ID" />
+                     </columns>
+                  </TableView>
+               </children>
+            </Pane>
+            <Button fx:id="agregarProductoVentaButton" disable="true" layoutX="165.0" layoutY="519.0" mnemonicParsing="false" onAction="#agregarProductoVenta" prefHeight="50.0" prefWidth="300.0" styleClass="boton-regresar-modificado" stylesheets="@../css/PanelAdministrador/Boton-regresar.css" text="Agregar producto" />
+            <Button fx:id="cancelarSeleccionProductosButton" disable="true" layoutX="495.0" layoutY="519.0" mnemonicParsing="false" onAction="#cancelarSeleccionProductos" prefHeight="50.0" prefWidth="300.0" styleClass="boton-regresar" stylesheets="@../css/PanelAdministrador/Boton-regresar.css" text="Cancelar selección" />
+            <Label fx:id="metodoPagoLabel" layoutX="200.0" layoutY="599.0" prefHeight="50.0" styleClass="normal-label" stylesheets="@../css/Titulo-Label.css" text="Método de pago:" />
+            <ComboBox fx:id="elegirMetodoPagoComboBox" layoutX="495.0" layoutY="599.0" prefHeight="50.0" prefWidth="300.0" promptText="💲 Elegir método de pago" styleClass="combo-pago" stylesheets="@../css/Combobox.css" visibleRowCount="3" />
+            <Label fx:id="tituloVentaLabel" layoutX="965.0" layoutY="109.0" styleClass="subtitulo-label" stylesheets="@../css/Titulo-Label.css" text="Creación de la venta" />
+            <Pane fx:id="listaProductosVentaPane" layoutX="965.0" layoutY="169.0" prefHeight="320.0" prefWidth="910.0" styleClass="panel" stylesheets="@../css/Panel.css">
+               <children>
+                  <TableView fx:id="listaProductosVentaTableView" prefHeight="320.0" prefWidth="910.0" styleClass="tabla-productos" stylesheets="@../css/Tables.css">
+                     <columns>
+                        <TableColumn fx:id="nombreTableColumn" prefWidth="75.0" text="Nombre" />
+                        <TableColumn fx:id="precioIndividualTableColumn" prefWidth="75.0" text="Precio Individual" />
+                        <TableColumn fx:id="cantidadTableColumn" prefWidth="75.0" text="Cantidad" />
+                        <TableColumn fx:id="precioTotalTableColumn" prefWidth="75.0" text="Precio Total" />
+                     </columns>
+                  </TableView>
+               </children>
+            </Pane>
+            <Button fx:id="reducir1CantidadProductoVentaButton" disable="true" layoutX="965.0" layoutY="519.0" mnemonicParsing="false" onAction="#reducir1CantidadProductoVenta" prefHeight="50.0" prefWidth="445.0" styleClass="boton-regresar" stylesheets="@../css/PanelAdministrador/Boton-regresar.css" text="-1" />
+            <Button fx:id="aumentar1CantidadProductoVentaButton" disable="true" layoutX="1430.0" layoutY="519.0" mnemonicParsing="false" onAction="#aumentar1CantidadProductoVenta" prefHeight="50.0" prefWidth="445.0" styleClass="boton-regresar" stylesheets="@../css/PanelAdministrador/Boton-regresar.css" text="+1" />
+            <Button fx:id="eliminarProductoVentaButton" disable="true" layoutX="1109.0" layoutY="599.0" mnemonicParsing="false" onAction="#eliminarProductoVenta" prefHeight="50.0" prefWidth="300.0" styleClass="boton-regresar-modificado" stylesheets="@../css/PanelAdministrador/Boton-regresar.css" text="Eliminar producto" />
+            <Button fx:id="cancelarSeleccionVentaButton" disable="true" layoutX="1432.0" layoutY="599.0" mnemonicParsing="false" onAction="#cancelarSeleccionVenta" prefHeight="50.0" prefWidth="300.0" styleClass="boton-regresar" stylesheets="@../css/PanelAdministrador/Boton-regresar.css" text="Cancelar selección" />
+            <Label fx:id="cantidadTotalVentaLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="350.0" layoutY="679.0" prefHeight="59.0" prefWidth="200.0" styleClass="normal-label" stylesheets="@../css/Titulo-Label.css" text="\$ Total:" />
+            <TextField fx:id="cantidadTotalVentaTextField" editable="false" layoutX="550.0" layoutY="679.0" prefHeight="59.0" prefWidth="200.0" promptText="\$ Cantidad" styleClass="input" stylesheets="@../css/Input.css" />
+            <Label fx:id="cantidadPagoVentaLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="750.0" layoutY="679.0" prefHeight="59.0" prefWidth="200.0" styleClass="normal-label" stylesheets="@../css/Titulo-Label.css" text="\$ Pago:" />
+            <TextField fx:id="cantidadPagoVentaTextField" disable="true" layoutX="950.0" layoutY="679.0" prefHeight="59.0" prefWidth="200.0" promptText="\$ Cantidad" styleClass="input" stylesheets="@../css/Input.css" />
+            <Label fx:id="cantidadCambioVentaLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="1150.0" layoutY="679.0" prefHeight="59.0" prefWidth="200.0" styleClass="normal-label" stylesheets="@../css/Titulo-Label.css" text="\$ Cambio:" />
+            <TextField fx:id="cantidadCambioVentaTextField" editable="false" layoutX="1350.0" layoutY="679.0" prefHeight="59.0" prefWidth="200.0" promptText="\$ Cantidad" styleClass="input" stylesheets="@../css/Input.css" />
+            <Label fx:id="notificacionLabel" alignment="CENTER" layoutX="495.0" layoutY="738.0" prefWidth="910.0" styleClass="normal-label" stylesheets="@../css/Titulo-Label.css" text="..." textAlignment="CENTER" />
+            <Button fx:id="registrarVentaButton" disable="true" layoutX="800.0" layoutY="775.0" mnemonicParsing="false" onAction="#registrarVenta" prefHeight="50.0" prefWidth="300.0" styleClass="boton-regresar-modificado" stylesheets="@../css/PanelAdministrador/Boton-regresar.css" text="Registrar venta" />
+         </children>
+      </Pane>
    </children>
 </AnchorPane>

@@ -1,0 +1,86 @@
+[
+  {
+    "uuid": "7f989513-fc06-44c1-93c3-39e3989ac6b4",
+    "folio": 1,
+    "fecha": "19/10/2025",
+    "hora": "22:43:51",
+    "cashierUsername": "123",
+    "metodoPago": "💵 Efectivo",
+    "total": 48.0,
+    "pago": 50.0,
+    "cambio": 2.0,
+    "inventoryApplied": true,
+    "items": [
+      {
+        "productId": "99aabbcc-ddee-ff00-1122-334455667788",
+        "nombreSnapshot": "Aceite 1L",
+        "precioUnitario": 48.0,
+        "cantidad": 1,
+        "totalLinea": 48.0
+      }
+    ]
+  },
+  {
+    "uuid": "201be4c4-10ef-4b6d-8373-8f467e10042e",
+    "folio": 2,
+    "fecha": "19/10/2025",
+    "hora": "22:45:17",
+    "cashierUsername": "234",
+    "metodoPago": "💳 Tarjeta",
+    "total": 137.5,
+    "pago": 137.5,
+    "cambio": 0.0,
+    "inventoryApplied": true,
+    "items": [
+      {
+        "productId": "8899aabb-ccdd-eeff-0011-223344556677",
+        "nombreSnapshot": "Atún Dolores 140g",
+        "precioUnitario": 27.0,
+        "cantidad": 1,
+        "totalLinea": 27.0
+      },
+      {
+        "productId": "aabbccdd-eeff-0011-2233-445566778899",
+        "nombreSnapshot": "Azúcar 1kg",
+        "precioUnitario": 32.0,
+        "cantidad": 2,
+        "totalLinea": 64.0
+      },
+      {
+        "productId": "66778899-aabb-ccdd-eeff-001122334455",
+        "nombreSnapshot": "Cheetos Torciditos 45g",
+        "precioUnitario": 15.5,
+        "cantidad": 3,
+        "totalLinea": 46.5
+      }
+    ]
+  },
+  {
+    "uuid": "0062f677-6dd8-42b4-9a34-b222164510ce",
+    "folio": 3,
+    "fecha": "19/10/2025",
+    "hora": "22:47:03",
+    "cashierUsername": "123",
+    "metodoPago": "💵 Efectivo",
+    "total": 114.0,
+    "pago": 500.0,
+    "cambio": 386.0,
+    "inventoryApplied": true,
+    "items": [
+      {
+        "productId": "c6d9f2a1-2b34-4c56-9e78-1a2b3c4d5e66",
+        "nombreSnapshot": "Agua Ciel 600ml",
+        "precioUnitario": 12.0,
+        "cantidad": 2,
+        "totalLinea": 24.0
+      },
+      {
+        "productId": "bbccddee-ff00-1122-3344-5566778899aa",
+        "nombreSnapshot": "Arroz 1kg",
+        "precioUnitario": 30.0,
+        "cantidad": 3,
+        "totalLinea": 90.0
+      }
+    ]
+  }
+]
