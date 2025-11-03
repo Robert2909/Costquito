@@ -82,5 +82,26 @@
         "totalLinea": 90.0
       }
     ]
+  },
+  {
+    "uuid": "627d78b8-8da2-4705-a826-a4c018d8fa4a",
+    "folio": 4,
+    "fecha": "19/10/2025",
+    "hora": "23:12:05",
+    "cashierUsername": "234",
+    "metodoPago": "💵 Efectivo",
+    "total": 21.0,
+    "pago": 25.0,
+    "cambio": 4.0,
+    "inventoryApplied": true,
+    "items": [
+      {
+        "productId": "22334455-6677-8899-aabb-ccddeeff0011",
+        "nombreSnapshot": "Chocorroles",
+        "precioUnitario": 21.0,
+        "cantidad": 1,
+        "totalLinea": 21.0
+      }
+    ]
   }
 ]

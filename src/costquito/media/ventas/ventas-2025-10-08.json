@@ -1,0 +1,506 @@
+[
+  {
+    "uuid": "c8218a63-32e1-47f3-81cf-80ebaa883c07",
+    "folio": 69,
+    "fecha": "08/10/2025",
+    "hora": "10:22:32",
+    "cashierUsername": "234",
+    "metodoPago": "💳 Tarjeta",
+    "total": 141.0,
+    "pago": 141.0,
+    "cambio": 0.0,
+    "inventoryApplied": true,
+    "items": [
+      {
+        "productId": "ff001122-3344-5566-7788-99aabbccdde0",
+        "nombreSnapshot": "Jabón Zote Rosa 400g",
+        "precioUnitario": 18.0,
+        "cantidad": 3,
+        "totalLinea": 54.0
+      },
+      {
+        "productId": "f2f8c5a0-6a65-4b3e-8f5a-0b5a2a9b9e21",
+        "nombreSnapshot": "Coca-Cola 1L",
+        "precioUnitario": 29.0,
+        "cantidad": 3,
+        "totalLinea": 87.0
+      }
+    ]
+  },
+  {
+    "uuid": "6d452c18-f9e7-44d4-9af6-8c62418630f7",
+    "folio": 70,
+    "fecha": "08/10/2025",
+    "hora": "11:42:48",
+    "cashierUsername": "234",
+    "metodoPago": "💵 Efectivo",
+    "total": 198.0,
+    "pago": 198.0,
+    "cambio": 0.0,
+    "inventoryApplied": true,
+    "items": [
+      {
+        "productId": "bbccddee-ff00-1122-3344-5566778899aa",
+        "nombreSnapshot": "Arroz 1kg",
+        "precioUnitario": 30.0,
+        "cantidad": 1,
+        "totalLinea": 30.0
+      },
+      {
+        "productId": "0f1e2d3c-4b5a-6978-9a0b-1c2d3e4f5a61",
+        "nombreSnapshot": "Pan Bimbo Blanco grande",
+        "precioUnitario": 42.0,
+        "cantidad": 1,
+        "totalLinea": 42.0
+      },
+      {
+        "productId": "1b2c3d4e-5f60-7182-93a4-b5c6d7e8f90a",
+        "nombreSnapshot": "Pilas AA (paquete 4)",
+        "precioUnitario": 42.0,
+        "cantidad": 3,
+        "totalLinea": 126.0
+      }
+    ]
+  },
+  {
+    "uuid": "4ad6e2c4-98f4-4be2-ba47-139ed2297b7b",
+    "folio": 71,
+    "fecha": "08/10/2025",
+    "hora": "12:55:27",
+    "cashierUsername": "234",
+    "metodoPago": "💳 Tarjeta",
+    "total": 128.0,
+    "pago": 128.0,
+    "cambio": 0.0,
+    "inventoryApplied": true,
+    "items": [
+      {
+        "productId": "0f1e2d3c-4b5a-6978-9a0b-1c2d3e4f5a61",
+        "nombreSnapshot": "Pan Bimbo Blanco grande",
+        "precioUnitario": 42.0,
+        "cantidad": 2,
+        "totalLinea": 84.0
+      },
+      {
+        "productId": "778899aa-bbcc-ddee-ff00-112233445566",
+        "nombreSnapshot": "Galletas Marías 170g",
+        "precioUnitario": 22.0,
+        "cantidad": 2,
+        "totalLinea": 44.0
+      }
+    ]
+  },
+  {
+    "uuid": "6cf7b73c-1a26-47a4-a693-c1c370fcb21a",
+    "folio": 72,
+    "fecha": "08/10/2025",
+    "hora": "13:05:13",
+    "cashierUsername": "234",
+    "metodoPago": "💵 Efectivo",
+    "total": 93.0,
+    "pago": 93.0,
+    "cambio": 0.0,
+    "inventoryApplied": true,
+    "items": [
+      {
+        "productId": "778899aa-bbcc-ddee-ff00-112233445566",
+        "nombreSnapshot": "Galletas Marías 170g",
+        "precioUnitario": 22.0,
+        "cantidad": 2,
+        "totalLinea": 44.0
+      },
+      {
+        "productId": "66778899-aabb-ccdd-eeff-001122334455",
+        "nombreSnapshot": "Cheetos Torciditos 45g",
+        "precioUnitario": 15.5,
+        "cantidad": 2,
+        "totalLinea": 31.0
+      },
+      {
+        "productId": "44556677-8899-aabb-ccdd-eeff00112233",
+        "nombreSnapshot": "Doritos Nacho 62g",
+        "precioUnitario": 18.0,
+        "cantidad": 1,
+        "totalLinea": 18.0
+      }
+    ]
+  },
+  {
+    "uuid": "893535ee-2ea3-49b8-bb23-880a24e258d1",
+    "folio": 73,
+    "fecha": "08/10/2025",
+    "hora": "14:56:29",
+    "cashierUsername": "123",
+    "metodoPago": "💳 Tarjeta",
+    "total": 215.5,
+    "pago": 215.5,
+    "cambio": 0.0,
+    "inventoryApplied": true,
+    "items": [
+      {
+        "productId": "a3b9e6c2-5f44-4e13-b7c8-9e2d4d7a1d33",
+        "nombreSnapshot": "Pepsi 600ml",
+        "precioUnitario": 14.5,
+        "cantidad": 2,
+        "totalLinea": 29.0
+      },
+      {
+        "productId": "bbccddee-ff00-1122-3344-5566778899aa",
+        "nombreSnapshot": "Arroz 1kg",
+        "precioUnitario": 30.0,
+        "cantidad": 1,
+        "totalLinea": 30.0
+      },
+      {
+        "productId": "7a6c3b3f-9c5c-4a0b-8e65-8c3a7f9b0c11",
+        "nombreSnapshot": "Coca-Cola 600ml",
+        "precioUnitario": 15.0,
+        "cantidad": 1,
+        "totalLinea": 15.0
+      },
+      {
+        "productId": "33445566-7788-99aa-bbcc-ddeeff001122",
+        "nombreSnapshot": "Sabritas Original 45g",
+        "precioUnitario": 17.5,
+        "cantidad": 1,
+        "totalLinea": 17.5
+      },
+      {
+        "productId": "ff001122-3344-5566-7788-99aabbccdde0",
+        "nombreSnapshot": "Jabón Zote Rosa 400g",
+        "precioUnitario": 18.0,
+        "cantidad": 2,
+        "totalLinea": 36.0
+      },
+      {
+        "productId": "aabbccdd-eeff-0011-2233-445566778899",
+        "nombreSnapshot": "Azúcar 1kg",
+        "precioUnitario": 32.0,
+        "cantidad": 2,
+        "totalLinea": 64.0
+      },
+      {
+        "productId": "c6d9f2a1-2b34-4c56-9e78-1a2b3c4d5e66",
+        "nombreSnapshot": "Agua Ciel 600ml",
+        "precioUnitario": 12.0,
+        "cantidad": 2,
+        "totalLinea": 24.0
+      }
+    ]
+  },
+  {
+    "uuid": "d6b41599-741d-44d5-8fad-52af040976df",
+    "folio": 74,
+    "fecha": "08/10/2025",
+    "hora": "15:52:53",
+    "cashierUsername": "123",
+    "metodoPago": "💵 Efectivo",
+    "total": 183.0,
+    "pago": 183.0,
+    "cambio": 0.0,
+    "inventoryApplied": true,
+    "items": [
+      {
+        "productId": "eeff0011-2233-4455-6677-8899aabbccdd",
+        "nombreSnapshot": "Cloro 1L",
+        "precioUnitario": 25.0,
+        "cantidad": 1,
+        "totalLinea": 25.0
+      },
+      {
+        "productId": "aabbccdd-eeff-0011-2233-445566778899",
+        "nombreSnapshot": "Azúcar 1kg",
+        "precioUnitario": 32.0,
+        "cantidad": 2,
+        "totalLinea": 64.0
+      },
+      {
+        "productId": "2c3d4e5f-6071-8293-a4b5-c6d7e8f90a1b",
+        "nombreSnapshot": "Encendedor Bic",
+        "precioUnitario": 12.0,
+        "cantidad": 3,
+        "totalLinea": 36.0
+      },
+      {
+        "productId": "f2f8c5a0-6a65-4b3e-8f5a-0b5a2a9b9e21",
+        "nombreSnapshot": "Coca-Cola 1L",
+        "precioUnitario": 29.0,
+        "cantidad": 2,
+        "totalLinea": 58.0
+      }
+    ]
+  },
+  {
+    "uuid": "1c21d7b7-bc5b-4204-a355-d3f3debf5de4",
+    "folio": 75,
+    "fecha": "08/10/2025",
+    "hora": "16:46:59",
+    "cashierUsername": "234",
+    "metodoPago": "💵 Efectivo",
+    "total": 188.0,
+    "pago": 188.0,
+    "cambio": 0.0,
+    "inventoryApplied": true,
+    "items": [
+      {
+        "productId": "ccddeeff-0011-2233-4455-66778899aabb",
+        "nombreSnapshot": "Frijol 1kg",
+        "precioUnitario": 38.0,
+        "cantidad": 3,
+        "totalLinea": 114.0
+      },
+      {
+        "productId": "a3b9e6c2-5f44-4e13-b7c8-9e2d4d7a1d33",
+        "nombreSnapshot": "Pepsi 600ml",
+        "precioUnitario": 14.5,
+        "cantidad": 2,
+        "totalLinea": 29.0
+      },
+      {
+        "productId": "7a6c3b3f-9c5c-4a0b-8e65-8c3a7f9b0c11",
+        "nombreSnapshot": "Coca-Cola 600ml",
+        "precioUnitario": 15.0,
+        "cantidad": 3,
+        "totalLinea": 45.0
+      }
+    ]
+  },
+  {
+    "uuid": "6f7a0a61-284b-4f77-a6fa-146b0ea30002",
+    "folio": 76,
+    "fecha": "08/10/2025",
+    "hora": "17:36:13",
+    "cashierUsername": "123",
+    "metodoPago": "💵 Efectivo",
+    "total": 214.0,
+    "pago": 214.0,
+    "cambio": 0.0,
+    "inventoryApplied": true,
+    "items": [
+      {
+        "productId": "ff001122-3344-5566-7788-99aabbccdde0",
+        "nombreSnapshot": "Jabón Zote Rosa 400g",
+        "precioUnitario": 18.0,
+        "cantidad": 1,
+        "totalLinea": 18.0
+      },
+      {
+        "productId": "22334455-6677-8899-aabb-ccddeeff0011",
+        "nombreSnapshot": "Chocorroles",
+        "precioUnitario": 21.0,
+        "cantidad": 2,
+        "totalLinea": 42.0
+      },
+      {
+        "productId": "eeff0011-2233-4455-6677-8899aabbccdd",
+        "nombreSnapshot": "Cloro 1L",
+        "precioUnitario": 25.0,
+        "cantidad": 1,
+        "totalLinea": 25.0
+      },
+      {
+        "productId": "1b2c3d4e-5f60-7182-93a4-b5c6d7e8f90a",
+        "nombreSnapshot": "Pilas AA (paquete 4)",
+        "precioUnitario": 42.0,
+        "cantidad": 2,
+        "totalLinea": 84.0
+      },
+      {
+        "productId": "ddeeff00-1122-3344-5566-778899aabbcc",
+        "nombreSnapshot": "Huevo docena",
+        "precioUnitario": 45.0,
+        "cantidad": 1,
+        "totalLinea": 45.0
+      }
+    ]
+  },
+  {
+    "uuid": "fc2974c5-2c3a-418b-ac7b-1ee4eb4ebac2",
+    "folio": 77,
+    "fecha": "08/10/2025",
+    "hora": "18:14:20",
+    "cashierUsername": "123",
+    "metodoPago": "💳 Tarjeta",
+    "total": 267.0,
+    "pago": 267.0,
+    "cambio": 0.0,
+    "inventoryApplied": true,
+    "items": [
+      {
+        "productId": "ff001122-3344-5566-7788-99aabbccdde0",
+        "nombreSnapshot": "Jabón Zote Rosa 400g",
+        "precioUnitario": 18.0,
+        "cantidad": 1,
+        "totalLinea": 18.0
+      },
+      {
+        "productId": "99aabbcc-ddee-ff00-1122-334455667788",
+        "nombreSnapshot": "Aceite 1L",
+        "precioUnitario": 48.0,
+        "cantidad": 3,
+        "totalLinea": 144.0
+      },
+      {
+        "productId": "7a6c3b3f-9c5c-4a0b-8e65-8c3a7f9b0c11",
+        "nombreSnapshot": "Coca-Cola 600ml",
+        "precioUnitario": 15.0,
+        "cantidad": 2,
+        "totalLinea": 30.0
+      },
+      {
+        "productId": "e785cf5b-8690-48a4-86f8-b19dedc3ecd4",
+        "nombreSnapshot": "Platano frito",
+        "precioUnitario": 25.0,
+        "cantidad": 3,
+        "totalLinea": 75.0
+      }
+    ]
+  },
+  {
+    "uuid": "b3c82c9a-8843-41be-b7dd-087a3db00346",
+    "folio": 78,
+    "fecha": "08/10/2025",
+    "hora": "19:29:58",
+    "cashierUsername": "234",
+    "metodoPago": "💳 Tarjeta",
+    "total": 455.0,
+    "pago": 455.0,
+    "cambio": 0.0,
+    "inventoryApplied": true,
+    "items": [
+      {
+        "productId": "aabbccdd-eeff-0011-2233-445566778899",
+        "nombreSnapshot": "Azúcar 1kg",
+        "precioUnitario": 32.0,
+        "cantidad": 3,
+        "totalLinea": 96.0
+      },
+      {
+        "productId": "1b2c3d4e-5f60-7182-93a4-b5c6d7e8f90a",
+        "nombreSnapshot": "Pilas AA (paquete 4)",
+        "precioUnitario": 42.0,
+        "cantidad": 3,
+        "totalLinea": 126.0
+      },
+      {
+        "productId": "22334455-6677-8899-aabb-ccddeeff0011",
+        "nombreSnapshot": "Chocorroles",
+        "precioUnitario": 21.0,
+        "cantidad": 1,
+        "totalLinea": 21.0
+      },
+      {
+        "productId": "0f1e2d3c-4b5a-6978-9a0b-1c2d3e4f5a61",
+        "nombreSnapshot": "Pan Bimbo Blanco grande",
+        "precioUnitario": 42.0,
+        "cantidad": 1,
+        "totalLinea": 42.0
+      },
+      {
+        "productId": "7a6c3b3f-9c5c-4a0b-8e65-8c3a7f9b0c11",
+        "nombreSnapshot": "Coca-Cola 600ml",
+        "precioUnitario": 15.0,
+        "cantidad": 1,
+        "totalLinea": 15.0
+      },
+      {
+        "productId": "ccddeeff-0011-2233-4455-66778899aabb",
+        "nombreSnapshot": "Frijol 1kg",
+        "precioUnitario": 38.0,
+        "cantidad": 1,
+        "totalLinea": 38.0
+      },
+      {
+        "productId": "d7e8f901-2345-4a67-89ab-bcdef0123456",
+        "nombreSnapshot": "Leche Lala 1L",
+        "precioUnitario": 28.5,
+        "cantidad": 2,
+        "totalLinea": 57.0
+      },
+      {
+        "productId": "bbccddee-ff00-1122-3344-5566778899aa",
+        "nombreSnapshot": "Arroz 1kg",
+        "precioUnitario": 30.0,
+        "cantidad": 2,
+        "totalLinea": 60.0
+      }
+    ]
+  },
+  {
+    "uuid": "5e896495-0ba7-4180-ba9e-518f65b8249b",
+    "folio": 79,
+    "fecha": "08/10/2025",
+    "hora": "20:44:15",
+    "cashierUsername": "234",
+    "metodoPago": "💵 Efectivo",
+    "total": 239.5,
+    "pago": 240.0,
+    "cambio": 0.5,
+    "inventoryApplied": true,
+    "items": [
+      {
+        "productId": "0a1b2c3d-4e5f-6071-8293-a4b5c6d7e8f9",
+        "nombreSnapshot": "Papel higiénico 4 rollos",
+        "precioUnitario": 35.0,
+        "cantidad": 2,
+        "totalLinea": 70.0
+      },
+      {
+        "productId": "778899aa-bbcc-ddee-ff00-112233445566",
+        "nombreSnapshot": "Galletas Marías 170g",
+        "precioUnitario": 22.0,
+        "cantidad": 3,
+        "totalLinea": 66.0
+      },
+      {
+        "productId": "11223344-5566-7788-99aa-bbccddeeff00",
+        "nombreSnapshot": "Gansito Marinela",
+        "precioUnitario": 17.0,
+        "cantidad": 1,
+        "totalLinea": 17.0
+      },
+      {
+        "productId": "33445566-7788-99aa-bbcc-ddeeff001122",
+        "nombreSnapshot": "Sabritas Original 45g",
+        "precioUnitario": 17.5,
+        "cantidad": 1,
+        "totalLinea": 17.5
+      },
+      {
+        "productId": "3d4e5f60-7182-93a4-b5c6-d7e8f90a1b2c",
+        "nombreSnapshot": "Tortillas 1kg",
+        "precioUnitario": 23.0,
+        "cantidad": 3,
+        "totalLinea": 69.0
+      }
+    ]
+  },
+  {
+    "uuid": "2eda4765-ea25-4929-be5e-13805d9afc52",
+    "folio": 80,
+    "fecha": "08/10/2025",
+    "hora": "21:01:23",
+    "cashierUsername": "234",
+    "metodoPago": "💳 Tarjeta",
+    "total": 98.0,
+    "pago": 98.0,
+    "cambio": 0.0,
+    "inventoryApplied": true,
+    "items": [
+      {
+        "productId": "22334455-6677-8899-aabb-ccddeeff0011",
+        "nombreSnapshot": "Chocorroles",
+        "precioUnitario": 21.0,
+        "cantidad": 3,
+        "totalLinea": 63.0
+      },
+      {
+        "productId": "0a1b2c3d-4e5f-6071-8293-a4b5c6d7e8f9",
+        "nombreSnapshot": "Papel higiénico 4 rollos",
+        "precioUnitario": 35.0,
+        "cantidad": 1,
+        "totalLinea": 35.0
+      }
+    ]
+  }
+]

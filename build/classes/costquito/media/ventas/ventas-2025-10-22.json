@@ -1,0 +1,65 @@
+[
+  {
+    "uuid": "94b63797-6634-4fb1-b2e9-a175753c954e",
+    "folio": 5,
+    "fecha": "22/10/2025",
+    "hora": "15:18:24",
+    "cashierUsername": "123",
+    "metodoPago": "💵 Efectivo",
+    "total": 300.0,
+    "pago": 500.0,
+    "cambio": 200.0,
+    "inventoryApplied": true,
+    "items": [
+      {
+        "productId": "b9c707a8-f3fd-4a7d-b5b2-1f6e8cbb9660",
+        "nombreSnapshot": "Backlog",
+        "precioUnitario": 100.0,
+        "cantidad": 3,
+        "totalLinea": 300.0
+      }
+    ]
+  },
+  {
+    "uuid": "27501ff1-5ae1-4e5c-9ab9-a74cc25f61f4",
+    "folio": 6,
+    "fecha": "22/10/2025",
+    "hora": "15:26:46",
+    "cashierUsername": "123",
+    "metodoPago": "💵 Efectivo",
+    "total": 499.0,
+    "pago": 500.0,
+    "cambio": 1.0,
+    "inventoryApplied": true,
+    "items": [
+      {
+        "productId": "b9c707a8-f3fd-4a7d-b5b2-1f6e8cbb9660",
+        "nombreSnapshot": "Backlog",
+        "precioUnitario": 100.0,
+        "cantidad": 4,
+        "totalLinea": 400.0
+      },
+      {
+        "productId": "bbccddee-ff00-1122-3344-5566778899aa",
+        "nombreSnapshot": "Arroz 1kg",
+        "precioUnitario": 30.0,
+        "cantidad": 1,
+        "totalLinea": 30.0
+      },
+      {
+        "productId": "99aabbcc-ddee-ff00-1122-334455667788",
+        "nombreSnapshot": "Aceite 1L",
+        "precioUnitario": 48.0,
+        "cantidad": 1,
+        "totalLinea": 48.0
+      },
+      {
+        "productId": "22334455-6677-8899-aabb-ccddeeff0011",
+        "nombreSnapshot": "Chocorroles",
+        "precioUnitario": 21.0,
+        "cantidad": 1,
+        "totalLinea": 21.0
+      }
+    ]
+  }
+]

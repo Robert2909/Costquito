@@ -3,43 +3,43 @@
     "id": "99aabbcc-ddee-ff00-1122-334455667788",
     "nombre": "Aceite 1L",
     "precio": 48.0,
-    "cantidad": 0
+    "cantidad": 7
   },
   {
     "id": "c6d9f2a1-2b34-4c56-9e78-1a2b3c4d5e66",
     "nombre": "Agua Ciel 600ml",
     "precio": 12.0,
-    "cantidad": 0
+    "cantidad": 27
   },
   {
     "id": "bbccddee-ff00-1122-3344-5566778899aa",
     "nombre": "Arroz 1kg",
     "precio": 30.0,
-    "cantidad": 0
+    "cantidad": 8
   },
   {
     "id": "8899aabb-ccdd-eeff-0011-223344556677",
     "nombre": "Atún Dolores 140g",
     "precio": 27.0,
-    "cantidad": 0
+    "cantidad": 18
   },
   {
     "id": "aabbccdd-eeff-0011-2233-445566778899",
     "nombre": "Azúcar 1kg",
     "precio": 32.0,
-    "cantidad": 0
+    "cantidad": 12
   },
   {
     "id": "66778899-aabb-ccdd-eeff-001122334455",
     "nombre": "Cheetos Torciditos 45g",
     "precio": 15.5,
-    "cantidad": 0
+    "cantidad": 26
   },
   {
     "id": "22334455-6677-8899-aabb-ccddeeff0011",
     "nombre": "Chocorroles",
     "precio": 21.0,
-    "cantidad": 14
+    "cantidad": 15
   },
   {
     "id": "eeff0011-2233-4455-6677-8899aabbccdd",
@@ -51,7 +51,7 @@
     "id": "f2f8c5a0-6a65-4b3e-8f5a-0b5a2a9b9e21",
     "nombre": "Coca-Cola 1L",
     "precio": 29.0,
-    "cantidad": 12
+    "cantidad": 10
   },
   {
     "id": "7a6c3b3f-9c5c-4a0b-8e65-8c3a7f9b0c11",

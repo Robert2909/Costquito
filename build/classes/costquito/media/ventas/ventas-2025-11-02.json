@@ -1,0 +1,23 @@
+[
+  {
+    "uuid": "a5f2c601-6cad-4c23-bdc1-970faf9fe9e1",
+    "folio": 7,
+    "fecha": "02/11/2025",
+    "hora": "20:49:02",
+    "cashierUsername": "123",
+    "metodoPago": "💵 Efectivo",
+    "total": 48.0,
+    "pago": 50.0,
+    "cambio": 2.0,
+    "inventoryApplied": true,
+    "items": [
+      {
+        "productId": "99aabbcc-ddee-ff00-1122-334455667788",
+        "nombreSnapshot": "Aceite 1L",
+        "precioUnitario": 48.0,
+        "cantidad": 1,
+        "totalLinea": 48.0
+      }
+    ]
+  }
+]

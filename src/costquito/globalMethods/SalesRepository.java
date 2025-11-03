@@ -139,6 +139,11 @@ public final class SalesRepository {
         }
     }
 
+    /** Alias de compatibilidad: mismo comportamiento que loadSalesFor(date). */
+    public static List<SaleRecord> loadByDate(LocalDate date) {
+        return loadSalesFor(date);
+    }
+
     /** Devuelve las ventas de HOY. */
     public static List<SaleRecord> loadToday() {
         return loadSalesFor(LocalDate.now());
